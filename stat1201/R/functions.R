@@ -2,13 +2,13 @@
 
 p_evidence <- function(p) {
   if (p < 0.01) {
-    return("Strong")
+    return("strong")
   } else if (p < 0.05) {
-    return("Moderate")
+    return("moderate")
   } else if (p < 0.1) {
-    return("Weak")
+    return("weak")
   } else {
-    return("No")
+    return("no")
   }
 }
 
@@ -24,10 +24,23 @@ ci_interval <- function(x, moe) {
   return(c(x - moe, x + moe))
 }
 
-outliers <- function(Q1, Q3) {
+outliers <- function(Q1, Q3, obs = NULL) {
   IQR = Q3 - Q1
-  cat("Observation <", Q1 - (1.5 * IQR), "\n")
-  cat("Observation >", Q3 + (1.5 * IQR), "\n")
+  left = Q1 - (1.5 * IQR)
+  right = Q3 + (1.5 * IQR)
+  if (is.null(obs)) {
+    cat("Observation <", left, "\n")
+    cat("Observation >", right, "\n")
+  } else {
+    if (obs < left) {
+      sprintf("Outlier to the left: %g < %g", obs, left)
+    } else if (obs > right) {
+      sprintf("Outlier to the right: %g > %g", obs, right)
+    } else {
+      sprintf("%g is not an outlier!", obs)
+    }
+  }
+
 }
 
 t_test <- function(t, df, tail) {
@@ -40,6 +53,16 @@ z_test <- function(z, tail) {
   return(tail * (1 - pnorm(abs(z))))
 }
 
+stats.print <- function(title, stats.df, colnames, ci, digits = 8) {
+  colnames(stats.df) <- colnames
+  rownames(stats.df) <- c("")
+
+  stats.df <- rapply(object = stats.df, f = round, classes = "numeric", how = "replace", digits = digits)
+  if (!is.null(stats.df$p.value)) stats.df$evidence = p_evidence(stats.df$p.value)
+
+  print(list(title, stats.df, sprintf("%g%% CI: (%g, %g)", 100 * ci[1], ci[2], ci[3])))
+}
+
 students_se <- function(s, n) {
   return(s / sqrt(n))
 }
@@ -50,9 +73,10 @@ students_t <- function(x, mu, s, n, tail, conf = 0.95) {
   t = (x - mu) / se
   p = t_test(t, df, tail)
   ci = ci_interval(x, t_crit(conf, df) * se)
-  tab = as.data.frame(matrix(c(df, se, t, p, p_evidence(p)), ncol = 5, dimnames = list(c(sprintf("%d-side", tail)), c('df', 'se(x)', 't_stat', 'p_value', 'evidence'))))
-
-  print(list(sprintf("%d-Sided One Sample Student's t-test", tail), tab, sprintf("%1.2f%% Confidence Interval: (%f, %f)", 100 * conf, ci[1], ci[2])))
+  stats.print(sprintf("%d-Sided One Sample Student's t-test", tail),
+              data.frame(df, se, t, p),
+              c("df", "se(x)", "t.stat", "p.value"),
+              c(conf, ci))
 }
 
 two_sample_se <- function(s1, n1, s2, n2) {
@@ -65,9 +89,10 @@ two_sample_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   t = ((x1 - x2) - 0) / (se)
   p = t_test(t, df, tail)
   ci = ci_interval(abs(x1 - x2), t_crit(conf, df) * se)
-  tab = as.data.frame(matrix(c(df, se, t, p, p_evidence(p)), ncol = 5, dimnames = list(c(sprintf("%d-side", tail)), c('df', 'se(x1 - x2)', 't_stat', 'p_value', 'evidence'))))
-
-  print(list(sprintf("%d-Sided Two Sample t-test SD's not equal", tail), tab, sprintf("%1.2f%% Confidence Interval: (%f, %f)", 100 * conf, ci[1], ci[2])))
+  stats.print(sprintf("%d-Sided Two Sample t-test SD's not equal", tail),
+              data.frame(df, se, t, p),
+              c("df", "se(x1-x2)", "t.stat", "p.value"),
+              c(conf, ci))
 }
 
 pooled_S2p <- function(s1, n1, s2, n2) {
@@ -83,14 +108,15 @@ pooled_se <- function(s1, n1, s2, n2) {
 
 pooled_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   df = n1 + n2 - 2
-  S2p = pooled_S2p(s1, n2, s2, n2)
+  S2p = pooled_S2p(s1, n1, s2, n2)
   se = pooled_se(s1, n1, s2, n2)
   t = ((x1 - x2) - 0) / (se)
   p = t_test(t, df, tail)
   ci = ci_interval(abs(x1 - x2), t_crit(conf, df) * se)
-  tab = as.data.frame(matrix(c(df, S2p, se, t, p, p_evidence(p)), ncol = 6, dimnames = list(c(sprintf("%d-side", tail)), c('df', 'S2p', 'se(x1 - x2)', 't_stat', 'p_value', 'evidence'))))
-
-  print(list(sprintf("%d-Sided Pooled t-test SD's equal", tail), tab, sprintf("%1.2f%% Confidence Interval: (%f, %f)", 100 * conf, ci[1], ci[2])))
+  stats.print(sprintf("%d-Sided Pooled t-test SD's equal", tail),
+              data.frame(df, S2p, se, t, p),
+              c('df', 'S2p', 'se(x1-x2)', 't.stat', 'p.value'),
+              c(conf, ci))
 }
 
 
@@ -105,9 +131,10 @@ two_proportions_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
   z = ((phat1 - phat2) - 0) / se
   p = z_test(z, tail)
   ci = ci_interval(abs(phat1 - phat2), z_crit(conf) * se)
-  tab = as.data.frame(matrix(c(se, z, p, p_evidence(p)), ncol = 4, dimnames = list(c(sprintf("%d-side", tail)), c('se(ph1 - ph2)', 'z_stat', 'p_value', 'evidence'))))
-
-  print(list(sprintf("%d-Sided Proportion z-test", tail), tab, sprintf("%1.2f%% Confidence Interval: (%f, %f)", 100 * conf, ci[1], ci[2])))
+  stats.print(sprintf("%d-Sided Proportion z-test", tail),
+              data.frame(se, z, p),
+              c('se(ph1-ph2)', 'z.stat', 'p.value'),
+              c(conf, ci))
 }
 
 
@@ -122,7 +149,9 @@ correlation_t <- function(r, n, tail, p = 0, conf = 0.95) {
   p = t_test(t, df, tail)
   # TODO: Ask about CI not giving right result
   ci = ci_interval(r, t_crit(conf, df) * se)
-  tab = as.data.frame(matrix(c(df, se, t, p, p_evidence(p)), ncol = 5, dimnames = list(c(sprintf("%d-side", tail)), c('df', 'se(r)', 't_stat', 'p_value', 'evidence'))))
 
-  print(list(sprintf("%d-Sided Correlation t-test", tail), tab, sprintf("%1.2f%% Confidence Interval: (%f, %f)", 100 * conf, ci[1], ci[2])))
+  stats.print(sprintf("%d-Sided Correlation t-test", tail),
+              data.frame(df, se, t, p),
+              c('df', 'se(r)', 't.stat', 'p.value'),
+              c(conf, ci))
 }
