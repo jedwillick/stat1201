@@ -10,8 +10,12 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    
+    name: Running tests on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up R 4.1.2
@@ -24,7 +28,6 @@ jobs:
           extra-packages: any::devtools
           working-directory: 'stat1201'
        
-        
       - name: Run tests
         run: |
           library(devtools)
