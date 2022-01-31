@@ -25,6 +25,7 @@ jobs:
       - uses: Bhacaz/checkout-files@v1
         with:
           files: stat1201/
+          token: ${{ github.token }}
 #       - name: Go to path
 #         run:
 #       - name: Set up R ${{ matrix.r-version }}
