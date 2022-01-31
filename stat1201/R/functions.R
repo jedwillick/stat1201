@@ -20,7 +20,7 @@ t_crit <- function(conf, df) {
   return(qt(1 - ((1 - conf) / 2), df))
 }
 
-ci_interval <- function(x, moe) {
+interval <- function(x, moe) {
   return(c(x - moe, x + moe))
 }
 
@@ -40,7 +40,6 @@ outliers <- function(Q1, Q3, obs = NULL) {
       sprintf("%g is not an outlier!", obs)
     }
   }
-
 }
 
 t_test <- function(t, df, tail) {
@@ -53,15 +52,44 @@ z_test <- function(z, tail) {
   return(tail * (1 - pnorm(abs(z))))
 }
 
-stats.print <- function(title, stats.df, colnames, ci, digits = 8) {
-  colnames(stats.df) <- colnames
-  rownames(stats.df) <- c("")
+stats.print <- function(...) {
+  x <- list(...)
+  # class(x) <- "stats"
 
-  stats.df <- rapply(object = stats.df, f = round, classes = "numeric", how = "replace", digits = digits)
-  if (!is.null(stats.df$p.value)) stats.df$evidence = p_evidence(stats.df$p.value)
+  rownames(x$stats) <- c("")
+  x <- rapply(object = x, f = round, classes = "numeric", how = "replace", digits = 8)
 
-  print(list(title, stats.df, sprintf("%g%% CI: (%g, %g)", 100 * ci[1], ci[2], ci[3])))
+  if (!is.null(x$stats$p.value)) x$stats$evidence = p_evidence(x$stats$p.value)
+  x$title <- sprintf("%d-Sided %s", x$tail, x$method)
+  cat("\n")
+  cat(x$title, "\n\n")
+  print(x$stats)
+  cat("\n")
+
+  cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
+  cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
+  cat("\n")
+
+  invisible(c(x, x$stats))
 }
+
+# print.stats <- function(x, digits = 8, ...) {
+#   rownames(x$stats) <- c("")
+#   x <- rapply(object = x, f = round, classes = "numeric", how = "replace", digits = digits)
+
+#   if (!is.null(x$stats$p.value)) x$stats$evidence = p_evidence(x$stats$p.value)
+#   x$title <- sprintf("%d-Sided %s", x$tail, x$method)
+#   cat("\n")
+#   cat(x$title, "\n\n")
+#   print(x$stats, ...)
+#   cat("\n")
+
+#   cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
+#   cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
+#   cat("\n")
+
+#   invisible(c(x, x$stats))
+# }
 
 students_se <- function(s, n) {
   return(s / sqrt(n))
@@ -72,11 +100,12 @@ students_t <- function(x, mu, s, n, tail, conf = 0.95) {
   se = students_se(s, n)
   t = (x - mu) / se
   p = t_test(t, df, tail)
-  ci = ci_interval(x, t_crit(conf, df) * se)
-  stats.print(sprintf("%d-Sided One Sample Student's t-test", tail),
-              data.frame(df, se, t, p),
-              c("df", "se(x)", "t.stat", "p.value"),
-              c(conf, ci))
+  moe = t_crit(conf, df) * se
+  ci = interval(x, moe)
+
+  stats = setNames(data.frame(df, se, t, p), c("df", "se(x)", "t.stat", "p.value"))
+  stats.print(method = "One Sample Student's t-test", tail = tail,
+              stats = stats, conf = conf, ci = ci, moe = moe)
 }
 
 two_sample_se <- function(s1, n1, s2, n2) {
@@ -88,11 +117,12 @@ two_sample_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   se = two_sample_se(s1, n1, s2, n2)
   t = ((x1 - x2) - 0) / (se)
   p = t_test(t, df, tail)
-  ci = ci_interval(abs(x1 - x2), t_crit(conf, df) * se)
-  stats.print(sprintf("%d-Sided Two Sample t-test SD's not equal", tail),
-              data.frame(df, se, t, p),
-              c("df", "se(x1-x2)", "t.stat", "p.value"),
-              c(conf, ci))
+  moe = t_crit(conf, df) * se
+  ci = interval(abs(x1 - x2), moe)
+
+  stats = setNames(data.frame(df, se, t, p), c("df", "se(x1-x2)", "t.stat", "p.value"))
+  stats.print(method = "Two Sample t-test SD's Not Equal", tail = tail,
+              stats = stats, conf = conf, ci = ci, moe = moe)
 }
 
 pooled_S2p <- function(s1, n1, s2, n2) {
@@ -112,13 +142,13 @@ pooled_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   se = pooled_se(s1, n1, s2, n2)
   t = ((x1 - x2) - 0) / (se)
   p = t_test(t, df, tail)
-  ci = ci_interval(abs(x1 - x2), t_crit(conf, df) * se)
-  stats.print(sprintf("%d-Sided Pooled t-test SD's equal", tail),
-              data.frame(df, S2p, se, t, p),
-              c('df', 'S2p', 'se(x1-x2)', 't.stat', 'p.value'),
-              c(conf, ci))
-}
+  moe = t_crit(conf, df) * se
+  ci = interval(abs(x1 - x2), moe)
 
+  stats = setNames(data.frame(df, S2p, se, t, p), c("df", "S2p", "se(x1-x2)", "t.stat", "p.value"))
+  stats.print(method = "Pooled t-test SD's Equal", tail = tail,
+              stats = stats, conf = conf, ci = ci, moe = moe)
+}
 
 two_proportions_se <- function(phat1, n1, phat2, n2) {
   left = (phat1 * (1 - phat1)) / n1
@@ -130,11 +160,12 @@ two_proportions_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
   se = two_proportions_se(phat1, n1, phat2, n2)
   z = ((phat1 - phat2) - 0) / se
   p = z_test(z, tail)
-  ci = ci_interval(abs(phat1 - phat2), z_crit(conf) * se)
-  stats.print(sprintf("%d-Sided Proportion z-test", tail),
-              data.frame(se, z, p),
-              c('se(ph1-ph2)', 'z.stat', 'p.value'),
-              c(conf, ci))
+  moe = z_crit(conf) * se
+  ci = interval(abs(phat1 - phat2), moe)
+
+  stats = setNames(data.frame(se, z, p), c('se(ph1-ph2)', 'z.stat', 'p.value'))
+  stats.print(method = "Two Proportion z-test", tail = tail,
+              stats = stats, conf = conf, ci = ci, moe = moe)
 }
 
 
@@ -148,10 +179,10 @@ correlation_t <- function(r, n, tail, p = 0, conf = 0.95) {
   t = (r - p) / se
   p = t_test(t, df, tail)
   # TODO: Ask about CI not giving right result
-  ci = ci_interval(r, t_crit(conf, df) * se)
+  moe = t_crit(conf, df) * se
+  ci = interval(r, moe)
 
-  stats.print(sprintf("%d-Sided Correlation t-test", tail),
-              data.frame(df, se, t, p),
-              c('df', 'se(r)', 't.stat', 'p.value'),
-              c(conf, ci))
+  stats = setNames(data.frame(df, se, t, p), c('df', 'se(r)', 't.stat', 'p.value'))
+  stats.print(method = "Correlation t-test", tail = tail,
+              stats = stats, conf = conf, ci = ci, moe = moe)
 }

@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 tomato = read.csv("Tomatoes.csv")
 View(tomato)

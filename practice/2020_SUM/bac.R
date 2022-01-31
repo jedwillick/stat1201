@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 alcohol = read.csv("Alcohol.csv")
 aggregate(BAC ~ Sex, alcohol, mean)

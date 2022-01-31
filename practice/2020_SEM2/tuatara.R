@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 mean.A = 617.7
 sd.A = 38.67
@@ -13,7 +12,7 @@ mean.A - mean.B
 
 t2 = two_sample_t(mean.A, sd.A, n.A, mean.B, sd.B, n.B, 2)
 
-MOE = qt(0.975, 8) * t2[[2]]$se
+MOE = qt(0.975, 8) * t2$se
 MOE
 
 outliers(597.8, 621.6)

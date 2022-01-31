@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 # Let X be the number of people infected by a diseased person
 ex = (0 * 0.25) + (1 * 0.2) + (2 * 0.3) + (3 * 0.25)

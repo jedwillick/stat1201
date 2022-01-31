@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 migraine = read.csv("Migraine.csv", as.is = F)
 

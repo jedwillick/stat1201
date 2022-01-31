@@ -11,8 +11,8 @@ hist(river$Cadmium)
 
 aggregate(LogCadmium ~ LandUse, data = river, "mean")
 
-fit = aov(LogCadmium ~ LandUse, data = river)
-summary(fit)
+fit = lm(LogCadmium ~ LandUse, data = river)
+t = anova(fit)
 
 SSTotal = 4.688 + 16.896
 

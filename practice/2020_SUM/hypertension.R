@@ -1,5 +1,4 @@
 library(stat1201)
-library(lattice)
 
 mean.A = 145
 sd.A = 5.08
@@ -15,7 +14,7 @@ moe = (6.32343 - -0.923427)/2
 moe
 
 pooled = pooled_t(mean.A, sd.A, n.A, mean.B, sd.B, n.B, 1)
-sqrt(pooled[[2]]$S2p)
+sqrt(pooled$S2p)
 
 ew = (n.B * (n.A+n.B+1))/2
 ew
