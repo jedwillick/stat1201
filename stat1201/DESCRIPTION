@@ -6,7 +6,6 @@ Authors@R: person("Jed", "Willick", role="cre", email="blank@blank.com")
 Description: All the equations you need for the STAT1201 final as an R library.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
