@@ -22,21 +22,18 @@ jobs:
         r-version: ['3.6.3', '4.1.1']
 
     steps:
-      - uses: Bhacaz/checkout-files@v1
+      - uses: actions/checkout@v2
+      - name: Go to path
+        run: cd stat1201
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
-          files: stat1201/
-          token: ${{ github.token }}
-#       - name: Go to path
-#         run:
-#       - name: Set up R ${{ matrix.r-version }}
-#         uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
-#         with:
-#           r-version: ${{ matrix.r-version }}
-#       - name: Install dependencies
-#         run: |
-#           install.packages(c("remotes", "rcmdcheck"))
-#           remotes::install_deps(dependencies = TRUE)
-#         shell: Rscript {0}
-#       - name: Check
-#         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
-#         shell: Rscript {0}
+          r-version: ${{ matrix.r-version }}
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        shell: Rscript {0}
