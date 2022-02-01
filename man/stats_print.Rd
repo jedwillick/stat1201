@@ -4,14 +4,22 @@
 \alias{stats_print}
 \title{Print Stats}
 \usage{
-stats_print(...)
+stats_print(stats, method, tail = NULL, conf = NULL, moe = NULL, ci = c(), ...)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[base:list]{base::list}}
-  \describe{
-    \item{\code{}}{}
-  }}
+\item{stats}{a data.frame with all the important stats.}
+
+\item{method}{string describing the method used.}
+
+\item{tail}{specify either \code{1} or \code{2} tail}
+
+\item{conf}{the confidence}
+
+\item{moe}{the margin of error}
+
+\item{ci}{the confidence interval as \code{c(LL, UL)}}
+
+\item{...}{Any other objects to be included in the output.}
 }
 \value{
 the list of stats.

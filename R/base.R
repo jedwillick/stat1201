@@ -126,11 +126,17 @@ z_test <- function(z, tail) {
 #' Print Stats
 #'
 #' Prints the statistics in a nice format, and returns the values as list.
-#' @inheritDotParams base::list
+#' @param stats a data.frame with all the important stats.
+#' @param method string describing the method used.
+#' @param tail specify either \code{1} or \code{2} tail
+#' @param conf the confidence
+#' @param moe the margin of error
+#' @param ci the confidence interval as \code{c(LL, UL)}
+#' @param ... Any other objects to be included in the output.
 #' @return the list of stats.
 #' @export
-stats_print <- function(...) {
-  x <- list(...)
+stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci = c(), ...) {
+  x <- list(stats = stats, method = method, tail = tail, conf = conf, moe = moe, ci = ci, ...)
   # class(x) <- "stats"
 
   rownames(x$stats) <- c("")
@@ -138,10 +144,12 @@ stats_print <- function(...) {
 
   if (!is.null(x$stats$p.value)) x$stats$evidence <- p_evidence(x$stats$p.value)
   if (!is.null(x$tail)) x$method <- sprintf("%d-Sided %s", x$tail, x$method)
+
   cat("\n")
   cat(x$method, "\n\n")
   print(x$stats)
   cat("\n")
+
   if (!is.null(x$conf)) {
     cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
     cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
