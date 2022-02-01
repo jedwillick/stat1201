@@ -1,0 +1,36 @@
+name: R Tests
+
+on:
+  push:
+    branches: [ main ]
+    paths: ["stat1201/**", ".github/**"]
+  pull_request:
+    branches: [ main ]
+    paths: ["stat1201/**", ".github/**"]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+    
+    name: Running tests on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up R 4.1.2
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.1.2'
+          
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::devtools
+          working-directory: 'stat1201'
+       
+      - name: Run tests
+        run: |
+          library(devtools)
+          devtools::test()
+        working-directory: 'stat1201'
+        shell: Rscript {0}
