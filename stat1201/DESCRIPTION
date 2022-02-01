@@ -1,7 +1,7 @@
 Package: stat1201
 Type: Package
 Title: STAT1201 cheat sheet(library)
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Jed", "Willick", role="cre", email="blank@blank.com")
 Description: All the equations you need for the STAT1201 final as an R library.
 License: MIT + file LICENSE
@@ -9,3 +9,17 @@ Encoding: UTF-8
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+RoxygenNote: 7.1.2
+Roxygen: list(markdown = TRUE)
+Collate: 
+    'doc-templates.R'
+    'base.R'
+    'one-sample.R'
+    'two-sample.R'
+    'correlation.R'
+    'linear-regression.R'
+    'anova.R'
+    'chi-square.R'
+    'logistic-regression.R'
+    'nonparametric.R'
+    
