@@ -136,24 +136,28 @@ z_test <- function(z, tail) {
 #' @return the list of stats.
 #' @export
 stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci = c(), ...) {
-  x <- list(stats = stats, method = method, tail = tail, conf = conf, moe = moe, ci = ci, ...)
-  # class(x) <- "stats"
-
+  x <- list(stats=stats, method=method, ...)
   rownames(x$stats) <- c("")
-  x <- rapply(object = x, f = round, classes = "numeric", how = "replace", digits = 8)
+  x$stats <- rapply(object = x$stats, f = round, classes = "numeric", how = "replace", digits = 8)
 
   if (!is.null(x$stats$p.value)) x$stats$evidence <- p_evidence(x$stats$p.value)
-  if (!is.null(x$tail)) x$method <- sprintf("%d-Sided %s", x$tail, x$method)
+  if (!is.null(tail)) {
+    x$method <- sprintf("%d-Sided %s", tail, x$method)
+    x$tail <- tail
+  }
 
   cat("\n")
   cat(x$method, "\n\n")
   print(x$stats)
   cat("\n")
 
-  if (!is.null(x$conf)) {
-    cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
-    cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
+  if (!is.null(conf)) {
+    cat(sprintf("%g%% Confidence", conf * 100), "\n")
+    cat(sprintf("MOE: %g, CI: (%g, %g)", moe, ci[1], ci[2]))
     cat("\n")
+    x$conf <- conf
+    x$moe <- moe
+    x$ci <- ci
   }
 
   invisible(c(x, x$stats))

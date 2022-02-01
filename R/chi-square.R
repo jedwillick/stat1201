@@ -3,6 +3,7 @@
 #' Generates a data.frame from observed frequencies.
 #' @param ... The observed frequencies (fo) in the form of \cr
 #'            Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)
+#' @param as_factors Boolean specifying whether to treat the Cols and Rows as factors
 #'
 #' @return the new data.frame
 #' @export
@@ -10,7 +11,7 @@
 #' @examples
 #' generate_frame(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
 #' generate_frame(Home = c("2018" = 391, "2020" = 454), Shared = c("2018" = 185, "2020" = 139))
-generate_frame <- function(...) {
+generate_frame <- function(..., as_factors=TRUE) {
   fo <- data.frame(...)
 
   x <- data.frame(matrix(nrow = sum(fo), ncol = 2, dimnames = list(c(), c("Cols", "Rows"))))
@@ -25,6 +26,10 @@ generate_frame <- function(...) {
       }
       index <- index + fo[[i]][j]
     }
+  }
+  if (as_factors) {
+    x$Cols <- factor(x$Cols)
+    x$Rows <- factor(x$Rows)
   }
   return(x)
 }

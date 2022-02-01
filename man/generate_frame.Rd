@@ -4,11 +4,13 @@
 \alias{generate_frame}
 \title{Generate data.frame}
 \usage{
-generate_frame(...)
+generate_frame(..., as_factors = TRUE)
 }
 \arguments{
 \item{...}{The observed frequencies (fo) in the form of \cr
 Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)}
+
+\item{as_factors}{Boolean specifying whether to treat the Cols and Rows as factors}
 }
 \value{
 the new data.frame

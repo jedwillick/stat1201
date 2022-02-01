@@ -2,8 +2,8 @@ test_that("Correlation SE", {
   delta_equal(correlation_se(0.6642512, 20), 0.1761897)
 })
 
-test_that("Correlation t-test Lec8 example", {
-  invisible(capture.output(x <- correlation_t(0.6642512, 20, 2)))
+test_that("Correlation t-test Lecture example", {
+  capture_invisible(x <- correlation_t(0.6642512, 20, 2))
   expect_equal(x$method, "2-Sided Correlation t-test")
   expect_equal(x$tail, 2)
   expect_equal(x$df, 18)

@@ -2,8 +2,8 @@ test_that("students se", {
   expect_equal(students_se(69.420, 21), 69.420 / sqrt(21))
 })
 
-test_that("students t lecture 5 example", {
-  invisible(capture.output(x <- students_t(55, 60.8, 10.91, 20, 2)))
+test_that("students t lecture  example", {
+  capture_invisible(x <- students_t(55, 60.8, 10.91, 20, 2))
   expect_equal(x$method, "2-Sided One Sample Student's t-test")
   expect_equal(x$tail, 2)
   expect_equal(x$df, 19)
