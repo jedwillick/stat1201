@@ -3,10 +3,8 @@ name: R Tests
 on:
   push:
     branches: [main]
-    paths: ["stat1201/**", ".github/**"]
   pull_request:
     branches: [main]
-    paths: ["stat1201/**", ".github/**"]
 
 jobs:
   build:
@@ -26,8 +24,5 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: rcmdcheck
-          working-directory: "stat1201"
 
       - uses: r-lib/actions/check-r-package@v2
-        with:
-          working-directory: "stat1201"
