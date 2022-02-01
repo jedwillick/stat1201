@@ -1,3 +1,15 @@
+#' Two Sample t-test Assumptions
+#'
+#' @inherit assumptions return description
+#' @export
+two_sample_assumptions <- function() {
+  writeLines(c(
+    "1. The data follows a normal distribution in each population.",
+    "2. The two samples are independent.",
+    "3. Each observation is a random sample from their respective populations."
+  ))
+}
+
 #' Two Sample Standard Error
 #'
 #' @param s1 1st sample SD
@@ -76,13 +88,26 @@ pooled_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   )
 }
 
+#' Two Proportions t-test Assumptions
+#'
+#' @inherit assumptions return description
+#' @export
+two_prop_assumptions <- function() {
+  writeLines(c(
+    "1. Each observation in the sample is randomly selected from their respective populations.",
+    "2. Each population is independent.",
+    "3. Populations follow binomial distributions.",
+    "4. Both np and n(1-p) are greater than 5 in order to use the normal approximation for binomial distributions."
+  ))
+}
+
 #' Two Proportions Standard Error
 #'
 #' @param phat1 1st sample proportion
 #' @param phat2 2nd sample proportion
 #' @inheritParams two_sample_se
 #' @export
-two_proportions_se <- function(phat1, n1, phat2, n2) {
+two_prop_se <- function(phat1, n1, phat2, n2) {
   left <- (phat1 * (1 - phat1)) / n1
   right <- (phat2 * (1 - phat2)) / n2
   return(sqrt(left + right))
@@ -90,11 +115,11 @@ two_proportions_se <- function(phat1, n1, phat2, n2) {
 
 #' Two Proportions z-test
 #'
-#' @inheritParams two_proportions_se
+#' @inheritParams two_prop_se
 #' @inherit test_base
 #' @seealso \code{stats::prop.test(table(data$X, data$Y))}
-two_proportions_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
-  se <- two_proportions_se(phat1, n1, phat2, n2)
+two_prop_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
+  se <- two_prop_se(phat1, n1, phat2, n2)
   z <- ((phat1 - phat2) - 0) / se
   p <- z_test(z, tail)
   moe <- z_crit(conf) * se

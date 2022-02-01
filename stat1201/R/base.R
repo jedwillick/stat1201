@@ -137,15 +137,16 @@ stats_print <- function(...) {
   x <- rapply(object = x, f = round, classes = "numeric", how = "replace", digits = 8)
 
   if (!is.null(x$stats$p.value)) x$stats$evidence <- p_evidence(x$stats$p.value)
-  x$title <- sprintf("%d-Sided %s", x$tail, x$method)
+  if (!is.null(x$tail)) x$method <- sprintf("%d-Sided %s", x$tail, x$method)
   cat("\n")
-  cat(x$title, "\n\n")
+  cat(x$method, "\n\n")
   print(x$stats)
   cat("\n")
-
-  cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
-  cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
-  cat("\n")
+  if (!is.null(x$conf)) {
+    cat(sprintf("%g%% Confidence", x$conf * 100), "\n")
+    cat(sprintf("MOE: %g, CI: (%g, %g)", x$moe, x$ci[1], x$ci[2]))
+    cat("\n")
+  }
 
   invisible(c(x, x$stats))
 }

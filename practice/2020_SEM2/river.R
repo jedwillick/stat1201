@@ -11,8 +11,8 @@ hist(river$Cadmium)
 
 aggregate(LogCadmium ~ LandUse, data = river, "mean")
 
-fit = lm(LogCadmium ~ LandUse, data = river)
-t = anova(fit)
+fit = aov(LogCadmium ~ LandUse, data = river)
+summary(fit)
 
 SSTotal = 4.688 + 16.896
 
@@ -21,7 +21,7 @@ LR2
 
 river$Flooding = as.factor(river$Flooding)
 fit = aov(LogCadmium ~ Flooding, data = river)
-summary(fit)
+t = summary(fit)
 
 SSTotal = 13.099 + 8.485
 

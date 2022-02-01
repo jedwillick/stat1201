@@ -9,3 +9,10 @@
 #' @importFrom stats setNames
 #' @name test_base
 NULL
+
+#' assumptions base
+#'
+#' Prints out the assumptions.
+#' @returns NULL
+#' @name assumptions
+NULL

@@ -12,14 +12,13 @@ Config/testthat/edition: 3
 RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Collate: 
-    'doc-templates.R'
-    'base.R'
-    'one-sample.R'
-    'two-sample.R'
-    'correlation.R'
-    'linear-regression.R'
     'anova.R'
+    'base.R'
     'chi-square.R'
+    'correlation.R'
+    'doc-templates.R'
+    'linear-regression.R'
     'logistic-regression.R'
     'nonparametric.R'
-    
+    'one-sample.R'
+    'two-sample.R'

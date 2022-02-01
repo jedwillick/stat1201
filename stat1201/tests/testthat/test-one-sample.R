@@ -4,7 +4,7 @@ test_that("students se", {
 
 test_that("students t lecture 5 example", {
   invisible(capture.output(x <- students_t(55, 60.8, 10.91, 20, 2)))
-  expect_equal(x$title, "2-Sided One Sample Student's t-test")
+  expect_equal(x$method, "2-Sided One Sample Student's t-test")
   expect_equal(x$tail, 2)
   expect_equal(x$df, 19)
   delta_equal(x$`se(x)`, 10.91 / sqrt(20))
