@@ -136,7 +136,7 @@ z_test <- function(z, tail) {
 #' @return the list of stats.
 #' @export
 stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci = c(), ...) {
-  x <- list(stats=stats, method=method, ...)
+  x <- list(stats = stats, method = method, ...)
   rownames(x$stats) <- c("")
   x$stats <- rapply(object = x$stats, f = round, classes = "numeric", how = "replace", digits = 8)
 
@@ -176,7 +176,7 @@ stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci 
 #' @examples
 #' generate_frame(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
 #' generate_frame(Home = c("2018" = 391, "2020" = 454), Shared = c("2018" = 185, "2020" = 139))
-generate_frame <- function(..., as_factors=TRUE) {
+generate_frame <- function(..., as_factors = TRUE) {
   fo <- data.frame(...)
 
   x <- data.frame(matrix(nrow = sum(fo), ncol = 2, dimnames = list(c(), c("Cols", "Rows"))))

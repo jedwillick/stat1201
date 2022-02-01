@@ -50,8 +50,6 @@ test_that("Chi-Square Test For Independence Lecture Example", {
   expect_equal(x$parameter[[1]], 1)
   delta_equal(x$statistic[[1]], 20.01732)
   delta_equal(x$p.value[[1]], xsq_test(20.01732, 1))
-
-
 })
 
 test_that("Chi-Square Test For Independence Tut Example", {
@@ -82,7 +80,7 @@ test_that("Chi-Square Independence Expected Freq", {
 test_that("Chi-Square Goodness of Fit Test Lecture Example", {
   capture_invisible(x <- chisq_gof(c(185, 190, 210, 205, 195, 215), 1 / 6))
 
-  freq = x$freq
+  freq <- x$freq
   expect_equal(rownames(freq), as.character(1:6))
   expect_equal(freq$fo, c(185, 190, 210, 205, 195, 215))
   expect_equal(freq$fe, replicate(6, 200))
@@ -98,7 +96,7 @@ test_that("Chi-Square Goodness of Fit Test Lecture Example", {
 test_that("Chi-Square Goodness of Fit Test Lecture Example", {
   capture_invisible(x <- chisq_gof(c(Low = 100, Med = 255, High = 45), c(0.2, 0.7, 0.1)))
 
-  freq = x$freq
+  freq <- x$freq
   expect_equal(rownames(freq), c("Low", "Med", "High"))
   expect_equal(freq$fo, c(100, 255, 45))
   expect_equal(freq$fe, c(400 * 0.2, 400 * 0.7, 400 * 0.1))

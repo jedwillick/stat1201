@@ -3,7 +3,7 @@ test_that("SLR t-stat from estimate and se", {
 })
 
 test_that("SLR se from estimate and t-stat", {
-  delta_equal(slr_se(63.5456, 5.003), 63.5456/5.003)
+  delta_equal(slr_se(63.5456, 5.003), 63.5456 / 5.003)
 })
 
 test_that("Linear regression degrees of freedom", {
