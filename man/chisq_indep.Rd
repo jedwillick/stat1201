@@ -4,13 +4,15 @@
 \alias{chisq_indep}
 \title{Chi-Square Test for Independence}
 \usage{
-chisq_indep(correct = FALSE, ...)
+chisq_indep(..., as_factors = TRUE, correct = FALSE)
 }
 \arguments{
-\item{correct}{Boolean indicating whether to perform Yates' Continuity Correction}
-
 \item{...}{The observed frequencies (fo) in the form of \cr
 Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)}
+
+\item{as_factors}{Boolean specifying whether to treat the Cols and Rows as factors}
+
+\item{correct}{Boolean indicating whether to perform Yates' Continuity Correction}
 }
 \value{
 A list with class \code{"htest"} containing the following

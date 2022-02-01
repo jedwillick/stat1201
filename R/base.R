@@ -162,3 +162,39 @@ stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci 
 
   invisible(c(x, x$stats))
 }
+
+#' Generate data.frame
+#'
+#' Generates a data.frame from observed frequencies.
+#' @param ... The observed frequencies (fo) in the form of \cr
+#'            Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)
+#' @param as_factors Boolean specifying whether to treat the Cols and Rows as factors
+#'
+#' @return the new data.frame
+#' @export
+#'
+#' @examples
+#' generate_frame(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
+#' generate_frame(Home = c("2018" = 391, "2020" = 454), Shared = c("2018" = 185, "2020" = 139))
+generate_frame <- function(..., as_factors=TRUE) {
+  fo <- data.frame(...)
+
+  x <- data.frame(matrix(nrow = sum(fo), ncol = 2, dimnames = list(c(), c("Cols", "Rows"))))
+  cols <- colnames(fo)
+  rows <- rownames(fo)
+  index <- 1
+  for (i in seq_along(fo)) {
+    for (j in seq_along(fo[[i]])) {
+      for (k in index:(fo[[i]][j] + index - 1)) {
+        x$Cols[k] <- cols[i]
+        x$Rows[k] <- rows[j]
+      }
+      index <- index + fo[[i]][j]
+    }
+  }
+  if (as_factors) {
+    x$Cols <- factor(x$Cols)
+    x$Rows <- factor(x$Rows)
+  }
+  return(x)
+}
