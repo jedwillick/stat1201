@@ -1,6 +1,6 @@
 Package: stat1201
 Type: Package
-Title: STAT1201 cheat sheet(library)
+Title: STAT1201 Equation Library
 Version: 0.2.0
 Authors@R: person("Jed", "Willick", role="cre", email="blank@blank.com")
 Description: All the equations you need for the STAT1201 final as an R library.

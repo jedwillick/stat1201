@@ -1,1 +1,2 @@
-# STAT1201 Cheat sheet & R Library
+# STAT1201 Equation Library
+

@@ -1,1 +1,0 @@
-library(stat1201)
