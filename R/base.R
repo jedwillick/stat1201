@@ -78,6 +78,7 @@ interval <- function(x, moe) {
 #' @param Q1 the first quartile
 #' @param Q3 the third quartile
 #' @param obs the observation
+#' @export
 outliers <- function(Q1, Q3, obs = NULL) {
   IQR <- Q3 - Q1
   left <- Q1 - (1.5 * IQR)
