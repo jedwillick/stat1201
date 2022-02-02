@@ -31,5 +31,7 @@ Calculates the statistics, prints in a nice format,
 and returns a list for easy access of the stats.
 }
 \seealso{
-\code{stats::t.test(Y ~ X, data, var.equal = TRUE)}
+\code{\link[stats:t.test]{stats::t.test()}}
+
+\code{t.test(Y ~ X, data, var.equal = TRUE)}
 }

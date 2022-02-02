@@ -2,6 +2,9 @@
 #'
 #' @inherit assumptions return description
 #' @export
+#'
+#' @examples
+#' rank_assumptions()
 rank_assumptions <- function() {
   writeLines(c(
     "Normal Approximation",

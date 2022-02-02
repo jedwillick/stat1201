@@ -27,5 +27,7 @@ Calculates the statistics, prints in a nice format,
 and returns a list for easy access of the stats.
 }
 \seealso{
-\code{stats::prop.test(table(data$X, data$Y))}
+\code{\link[stats:prop.test]{stats::prop.test()}}
+
+\code{prop.test(table(data$X, data$Y))}
 }

@@ -17,3 +17,6 @@ p value
 \description{
 Performs a z-test.
 }
+\seealso{
+\code{\link[stats:Normal]{stats::pnorm()}}
+}

@@ -5,9 +5,9 @@
 #' @param B the population estimate
 #'
 #' @return the t-stat
+#' @seealso [stats::lm()]
+#' @seealso \code{lm(Y ~ X, data)}
 #' @export
-#'
-#' @seealso \code{stats::lm(Y ~ X, data)}
 slr_t <- function(b, se, B = 0) {
   return((b - B) / se)
 }
@@ -50,10 +50,14 @@ lr_moe <- function(df, se, conf = 0.95) {
 #'
 #' @inherit assumptions return description
 #'
-#' @seealso \code{stats::lm(Y ~ X, data)}
-#' @seealso \code{stats::lm(Y ~ X1 * X2, data) # Interaction}
-#' @seealso \code{stats::lm(Y ~ X1 + X2, data) # No Interaction}
+#' @seealso [stats::lm()]
+#' @seealso \code{lm(Y ~ X, data)}
+#' @seealso \code{lm(Y ~ X1 * X2, data) # Interaction}
+#' @seealso \code{lm(Y ~ X1 + X2, data) # No Interaction}
 #' @export
+#'
+#' @examples
+#' lr_assumptions()
 lr_assumptions <- function() {
   writeLines(c(
     "1. Linearity - Relationship between X and Y is linear.",

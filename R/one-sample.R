@@ -16,7 +16,8 @@ students_se <- function(s, n) {
 #' @param x the sample mean
 #' @inheritParams students_se
 #' @inherit test_base
-#' @seealso \code{stats::t.test(data$X)}
+#' @seealso [stats::t.test()]
+#' @seealso \code{t.test(data$X)}
 #' @export
 students_t <- function(mu, x, s, n, tail, conf = 0.95) {
   df <- n - 1

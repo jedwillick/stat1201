@@ -19,3 +19,6 @@ p value
 \description{
 Performs a t-test.
 }
+\seealso{
+\code{\link[stats:TDist]{stats::pt()}}
+}

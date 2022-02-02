@@ -2,6 +2,9 @@
 #'
 #' @inherit assumptions return description
 #' @export
+#'
+#' @examples
+#' two_sample_assumptions()
 two_sample_assumptions <- function() {
   writeLines(c(
     "1. The data follows a normal distribution in each population.",
@@ -29,7 +32,8 @@ two_sample_se <- function(s1, n1, s2, n2) {
 #' @param x2 2nd sample mean
 #' @inheritParams two_sample_se
 #' @inherit test_base
-#' @seealso \code{stats::t.test(Y ~ X, data)}
+#' @seealso [stats::t.test()]
+#' @seealso \code{t.test(Y ~ X, data)}
 #' @export
 two_sample_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   df <- min(c(n1 - 1, n2 - 1))
@@ -70,7 +74,8 @@ pooled_se <- function(s1, n1, s2, n2) {
 #' Pooled t-test SD's Equal
 #'
 #' @inherit two_sample_t
-#' @seealso \code{stats::t.test(Y ~ X, data, var.equal = TRUE)}
+#' @seealso [stats::t.test()]
+#' @seealso \code{t.test(Y ~ X, data, var.equal = TRUE)}
 #' @export
 pooled_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   df <- n1 + n2 - 2
@@ -92,6 +97,8 @@ pooled_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
 #'
 #' @inherit assumptions return description
 #' @export
+#' @examples
+#' two_prop_assumptions()
 two_prop_assumptions <- function() {
   writeLines(c(
     "1. Each observation in the sample is randomly selected from their respective populations.",
@@ -117,7 +124,8 @@ two_prop_se <- function(phat1, n1, phat2, n2) {
 #'
 #' @inheritParams two_prop_se
 #' @inherit test_base
-#' @seealso \code{stats::prop.test(table(data$X, data$Y))}
+#' @seealso [stats::prop.test()]
+#' @seealso \code{prop.test(table(data$X, data$Y))}
 #' @export
 two_prop_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
   se <- two_prop_se(phat1, n1, phat2, n2)

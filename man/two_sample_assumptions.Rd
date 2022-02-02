@@ -9,3 +9,6 @@ two_sample_assumptions()
 \description{
 Prints out the assumptions.
 }
+\examples{
+two_sample_assumptions()
+}

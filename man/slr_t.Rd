@@ -20,5 +20,7 @@ the t-stat
 Simple Linear Regression t-stat
 }
 \seealso{
-\code{stats::lm(Y ~ X, data)}
+\code{\link[stats:lm]{stats::lm()}}
+
+\code{lm(Y ~ X, data)}
 }

@@ -4,6 +4,7 @@
 #'
 #' @inherit stats::chisq.test return
 #' @importFrom stats chisq.test
+#' @seealso [stats::chisq.test()]
 #' @export
 #'
 #' @examples
@@ -73,6 +74,7 @@ chisq_gof <- function(fo, p, k = 0) {
 #'
 #' @return the p value
 #' @importFrom stats pchisq
+#' @seealso [stats::pchisq()]
 #' @export
 xsq_test <- function(xsq, df) {
   return(1 - pchisq(abs(xsq), df))

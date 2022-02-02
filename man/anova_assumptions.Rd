@@ -9,3 +9,6 @@ anova_assumptions()
 \description{
 Prints out the assumptions.
 }
+\examples{
+anova_assumptions()
+}

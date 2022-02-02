@@ -27,5 +27,7 @@ Calculates the statistics, prints in a nice format,
 and returns a list for easy access of the stats.
 }
 \seealso{
-\code{stats::t.test(data$X)}
+\code{\link[stats:t.test]{stats::t.test()}}
+
+\code{t.test(data$X)}
 }

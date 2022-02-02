@@ -9,3 +9,6 @@ rank_assumptions()
 \description{
 Prints out the assumptions.
 }
+\examples{
+rank_assumptions()
+}

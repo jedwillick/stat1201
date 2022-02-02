@@ -20,13 +20,21 @@ p-value
 ANOVA f-test
 }
 \seealso{
-\code{stats::aov(Y ~ X, data) # One-Way}
+\code{\link[stats:Fdist]{stats::pf()}}
 
-\code{stats::aov(Y ~ X1 * X2, data) # Two-Way}
+\code{\link[stats:aov]{stats::aov()}}
 
-\code{stats::pairwise.t.test(x, g, p.adjust.method = "none")}
+\code{aov(Y ~ X, data) # One-Way}
 
-\code{stats::pairwise.t.test(x, g, p.adjust.method = "bonferroni") # significance = 0.05/numPairs}
+\code{aov(Y ~ X1 * X2, data) # Two-Way}
 
-\code{stats::TukeyHSD(fit)}
+\code{\link[stats:pairwise.t.test]{stats::pairwise.t.test()}}
+
+\code{pairwise.t.test(x, g, p.adjust.method = "none")}
+
+\code{pairwise.t.test(x, g, p.adjust.method = "bonferroni") # significance = 0.05/numPairs}
+
+\code{\link[stats:TukeyHSD]{stats::TukeyHSD()}}
+
+\code{TukeyHSD(fit)}
 }

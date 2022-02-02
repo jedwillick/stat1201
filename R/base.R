@@ -19,6 +19,12 @@
 #' @param p The p value
 #' @return the strength of the p value
 #' @export
+#'
+#' @examples
+#' p_evidence(0.0101)
+#' p_evidence(0.0421)
+#' p_evidence(0.0666)
+#' p_evidence(0.142)
 p_evidence <- function(p) {
   if (p < 0.01) {
     return("strong")
@@ -107,6 +113,7 @@ outliers <- function(Q1, Q3, obs = NULL) {
 #' @param tail specify either \code{1} or \code{2} tail
 #' @return p value
 #' @importFrom stats pt
+#' @seealso [stats::pt()]
 #' @export
 t_test <- function(t, df, tail) {
   if (tail %ni% c(1, 2)) stop("Tail must be 1 or 2.")
@@ -120,6 +127,7 @@ t_test <- function(t, df, tail) {
 #' @param tail specify either \code{1} or \code{2} tail
 #' @return p value
 #' @importFrom stats pnorm
+#' @seealso [stats::pnorm()]
 #' @export
 z_test <- function(z, tail) {
   if (tail %ni% c(1, 2)) stop("Tail must be 1 or 2.")
@@ -177,8 +185,17 @@ stats_print <- function(stats, method, tail = NULL, conf = NULL, moe = NULL, ci 
 #' @export
 #'
 #' @examples
-#' generate_frame(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
-#' generate_frame(Home = c("2018" = 391, "2020" = 454), Shared = c("2018" = 185, "2020" = 139))
+#' frame1 <- generate_frame(
+#'   Nicotine = c(No = 148, Yes = 52),
+#'   Placebo = c(No = 182, Yes = 18)
+#' )
+#' addmargins(table(frame1$Rows, frame1$Cols))
+#'
+#' frame2 <- generate_frame(
+#'   Home = c("2018" = 391, "2020" = 454),
+#'   Shared = c("2018" = 185, "2020" = 139)
+#' )
+#' addmargins(table(frame2$Rows, frame2$Cols))
 generate_frame <- function(..., as_factors = TRUE) {
   fo <- data.frame(...)
 

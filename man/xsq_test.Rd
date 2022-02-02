@@ -17,3 +17,6 @@ the p value
 \description{
 Chi-Square X^2-test
 }
+\seealso{
+\code{\link[stats:Chisquare]{stats::pchisq()}}
+}

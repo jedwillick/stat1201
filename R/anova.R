@@ -51,11 +51,15 @@ anova_f <- function(msg, msr) {
 #' @return p-value
 #' @importFrom stats pf
 #'
-#' @seealso \code{stats::aov(Y ~ X, data) # One-Way}
-#' @seealso \code{stats::aov(Y ~ X1 * X2, data) # Two-Way}
-#' @seealso \code{stats::pairwise.t.test(x, g, p.adjust.method = "none")}
-#' @seealso \code{stats::pairwise.t.test(x, g, p.adjust.method = "bonferroni") # significance = 0.05/numPairs}
-#' @seealso \code{stats::TukeyHSD(fit)}
+#' @seealso [stats::pf()]
+#' @seealso [stats::aov()]
+#' @seealso \code{aov(Y ~ X, data) # One-Way}
+#' @seealso \code{aov(Y ~ X1 * X2, data) # Two-Way}
+#' @seealso [stats::pairwise.t.test()]
+#' @seealso \code{pairwise.t.test(x, g, p.adjust.method = "none")}
+#' @seealso \code{pairwise.t.test(x, g, p.adjust.method = "bonferroni") # significance = 0.05/numPairs}
+#' @seealso [stats::TukeyHSD()]
+#' @seealso \code{TukeyHSD(fit)}
 #' @export
 f_test <- function(f, df1, df2) {
   p <- 1 - pf(abs(f), df1, df2)
@@ -67,6 +71,8 @@ f_test <- function(f, df1, df2) {
 #'
 #' @inherit assumptions return description
 #' @export
+#' @examples
+#' anova_assumptions()
 anova_assumptions <- function() {
   writeLines(c(
     "1. Observations are random and independent.",

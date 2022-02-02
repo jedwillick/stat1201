@@ -41,3 +41,6 @@ Chi-Square Test for Independence
 chisq_indep(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
 chisq_indep(Home = c("2018" = 391, "2020" = 454), Shared = c("2018" = 185, "2020" = 139))
 }
+\seealso{
+\code{\link[stats:chisq.test]{stats::chisq.test()}}
+}

@@ -9,3 +9,6 @@ two_prop_assumptions()
 \description{
 Prints out the assumptions.
 }
+\examples{
+two_prop_assumptions()
+}

@@ -9,10 +9,15 @@ lr_assumptions()
 \description{
 Prints out the assumptions.
 }
+\examples{
+lr_assumptions()
+}
 \seealso{
-\code{stats::lm(Y ~ X, data)}
+\code{\link[stats:lm]{stats::lm()}}
 
-\code{stats::lm(Y ~ X1 * X2, data) # Interaction}
+\code{lm(Y ~ X, data)}
 
-\code{stats::lm(Y ~ X1 + X2, data) # No Interaction}
+\code{lm(Y ~ X1 * X2, data) # Interaction}
+
+\code{lm(Y ~ X1 + X2, data) # No Interaction}
 }
