@@ -22,3 +22,4 @@ Collate:
     'nonparametric.R'
     'one-sample.R'
     'two-sample.R'
+    'probability-distributions.R'

@@ -1,6 +1,6 @@
 #' Odds
 #'
-#'@param P_event Probability of event
+#' @param P_event Probability of event
 #'
 #' @return Odds of event
 #' @export
@@ -33,7 +33,7 @@ logistic_or <- function(P1, P2) {
 logistic_phat <- function(b0, b1, x) {
   numerator <- exp(b0 + (b1 * x))
   denominator <- 1 + exp(b0 + (b1 * x))
-  return(numerator/denominator)
+  return(numerator / denominator)
 }
 
 
@@ -45,7 +45,7 @@ logistic_phat <- function(b0, b1, x) {
 #'
 #' @return the margin of error
 #' @export
-logistic_moe <- function(se, conf=0.95) {
+logistic_moe <- function(se, conf = 0.95) {
   return(z_crit(conf) * se)
 }
 
@@ -59,7 +59,7 @@ logistic_moe <- function(se, conf=0.95) {
 #' @examples
 #' logistic_groups(-2.3136, 1.2677)
 logistic_groups <- function(b0, b1) {
-  first = b0 + (b1 * 1)
-  second = b0 + (b1 * 0)
-  return(exp(first-second))
+  first <- b0 + (b1 * 1)
+  second <- b0 + (b1 * 0)
+  return(exp(first - second))
 }

@@ -42,10 +42,10 @@ signed_rank_expected <- function(n) {
 signed_rank <- function(S, n, tail) {
   es <- signed_rank_expected(n)
   sds <- signed_rank_sd(n)
-  z <- (S - es)/sds
+  z <- (S - es) / sds
   p <- z_test(z, tail)
   stats <- setNames(data.frame(S, es, sds, z, p), c("S", "E(S)", "sd(S)", "z.stat", "p.value"))
-  stats_print(stats=stats, method="Signed Rank Test", tail=tail)
+  stats_print(stats = stats, method = "Signed Rank Test", tail = tail)
 }
 
 #' Rank-Sum Expected Mean With Normal Approximation
@@ -56,7 +56,7 @@ signed_rank <- function(S, n, tail) {
 #' @return the expected mean
 #' @export
 rank_sum_expected <- function(n1, n2) {
-  return((n1 * (n1+n2+1))/2)
+  return((n1 * (n1 + n2 + 1)) / 2)
 }
 
 #' Rank-Sum standard Deviation With Normal Approximation
@@ -65,7 +65,7 @@ rank_sum_expected <- function(n1, n2) {
 #' @return the standard deviation
 #' @export
 rank_sum_sd <- function(n1, n2) {
-  return(sqrt((n1 * n2 * (n1 + n2 + 1))/12))
+  return(sqrt((n1 * n2 * (n1 + n2 + 1)) / 12))
 }
 
 #' Rank-Sum test (Wilcoxon Rank-Sum test)
@@ -78,14 +78,10 @@ rank_sum_sd <- function(n1, n2) {
 #' @examples
 #' rank_sum(141.5, 10, 10, 1)
 rank_sum <- function(W, n1, n2, tail) {
-  ew <- rank_sum_expected(n1 ,n2)
+  ew <- rank_sum_expected(n1, n2)
   sdw <- rank_sum_sd(n1, n2)
-  z <- (W - ew)/sdw
+  z <- (W - ew) / sdw
   p <- z_test(z, tail)
   stats <- setNames(data.frame(W, ew, sdw, z, p), c("W", "E(W)", "sd(W)", "z.stat", "p.value"))
-  stats_print(stats=stats, method="Rank-Sum Test (Wilcoxon)", tail=tail)
+  stats_print(stats = stats, method = "Rank-Sum Test (Wilcoxon)", tail = tail)
 }
-
-
-
-
