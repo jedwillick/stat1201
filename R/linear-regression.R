@@ -33,6 +33,18 @@ lr_df <- function(n, k) {
   return(n - k - 1)
 }
 
+#' Linear Regression Margin of Error
+#'
+#' @param df Degrees of Freedom
+#' @param se Standard Error
+#' @param conf Confidence
+#'
+#' @return Margin of Error
+#' @export
+lr_moe <- function(df, se, conf=0.95) {
+  return(t_crit(conf, df) * se)
+}
+
 #' Linear Regression Assumptions
 #'
 #' @inherit assumptions return description

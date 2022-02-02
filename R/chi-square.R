@@ -14,7 +14,6 @@ chisq_indep <- function(..., as_factors = TRUE, correct = FALSE) {
   chisq.test(table(frame$Rows, frame$Cols), correct = correct)
 }
 
-
 #' Chi-Square Independence Degrees of Freedom
 #'
 #' @param num.rows Number of rows
@@ -25,7 +24,6 @@ chisq_indep <- function(..., as_factors = TRUE, correct = FALSE) {
 chisq_indep_df <- function(num.rows, num.cols) {
   return((num.rows - 1) * (num.cols - 1))
 }
-
 
 #' Chi-Square Independence Expected Frequency
 #'
@@ -67,7 +65,6 @@ chisq_gof <- function(fo, p, k = 0) {
   print(x)
   stats_print(method = "Chi-Square Goodness of Fit Test", stats = stats, freq = x)
 }
-
 
 #' Chi-Square X^2-test
 #'

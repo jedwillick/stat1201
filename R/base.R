@@ -123,6 +123,34 @@ z_test <- function(z, tail) {
   return(tail * (1 - pnorm(abs(z))))
 }
 
+#' Standardize a normal distribution
+#'
+#' Transform a normal distribution to a standard normal distribution
+#' @param x value
+#' @param mu population mean
+#' @param sigma population standard deviation
+#'
+#' @return standardized normal distribution
+#' @export
+stand_normal <- function(x, mu, sigma) {
+  return((x - mu)/sigma)
+}
+
+#' Central Limit Theorem to Standardize a normal distribution
+#'
+#' If the population is not normally distributed, for sufficiently large n,
+#' we use central limit theorem.
+#' @param x the sample mean.
+#' @param mu the population mean
+#' @param sigma the population standard deviation
+#' @param n the sample size
+#'
+#' @return standardized normal distribution
+#' @export
+central_limit <- function(x, mu, sigma, n) {
+  return((x-mu)/(sigma/sqrt(n)))
+}
+
 #' Print Stats
 #'
 #' Prints the statistics in a nice format, and returns the values as list.
