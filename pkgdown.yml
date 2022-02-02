@@ -1,0 +1,9 @@
+pandoc: 2.7.3
+pkgdown: 2.0.2
+pkgdown_sha: ~
+articles: {}
+last_built: 2022-02-02T08:13Z
+urls:
+  reference: https://jedwillick.github.io/stat1201/reference
+  article: https://jedwillick.github.io/stat1201/articles
+
