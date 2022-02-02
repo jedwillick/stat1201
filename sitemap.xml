@@ -100,6 +100,12 @@
     <loc>https://jedwillick.github.io/stat1201/reference/ni.html</loc>
   </url>
   <url>
+    <loc>https://jedwillick.github.io/stat1201/reference/one_sample_se.html</loc>
+  </url>
+  <url>
+    <loc>https://jedwillick.github.io/stat1201/reference/one_sample_t.html</loc>
+  </url>
+  <url>
     <loc>https://jedwillick.github.io/stat1201/reference/outliers.html</loc>
   </url>
   <url>
@@ -158,12 +164,6 @@
   </url>
   <url>
     <loc>https://jedwillick.github.io/stat1201/reference/stats_print.html</loc>
-  </url>
-  <url>
-    <loc>https://jedwillick.github.io/stat1201/reference/students_se.html</loc>
-  </url>
-  <url>
-    <loc>https://jedwillick.github.io/stat1201/reference/students_t.html</loc>
   </url>
   <url>
     <loc>https://jedwillick.github.io/stat1201/reference/t_crit.html</loc>
