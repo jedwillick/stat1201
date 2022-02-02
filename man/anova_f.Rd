@@ -2,7 +2,7 @@
 % Please edit documentation in R/anova.R
 \name{anova_f}
 \alias{anova_f}
-\title{ANOVA f-stat from msg and msr}
+\title{ANOVA f-stat from MSG and MSR}
 \usage{
 anova_f(msg, msr)
 }
@@ -15,5 +15,5 @@ anova_f(msg, msr)
 f-stat
 }
 \description{
-ANOVA f-stat from msg and msr
+ANOVA f-stat from MSG and MSR
 }

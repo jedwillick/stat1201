@@ -31,7 +31,7 @@ anova_mst <- function(sst, n) {
   return(sst / (n - 1))
 }
 
-#' ANOVA f-stat from msg and msr
+#' ANOVA f-stat from MSG and MSR
 #'
 #' @param msg Mean Squares Group
 #' @param msr Mean Squares Residual
