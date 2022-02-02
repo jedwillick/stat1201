@@ -1,9 +1,9 @@
-#' Not In
+#' Not Value Matching
 #'
 #' Negation of \code{\%in\%}
 #' @inheritParams base::match
 #' @usage x \%ni\% table
-#' @rdname ni
+#' @name ni
 #' @export
 #'
 #' @examples

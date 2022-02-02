@@ -7,3 +7,82 @@ navbar:
   structure:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github]
+
+reference:
+- title: stat1201
+  contents:
+  - stat1201
+
+- title: Base
+  desc: Base functions used throughout.
+  contents:
+  - ni
+  - outliers
+  - z_test
+  - z_crit
+  - t_test
+  - t_crit
+  - p_evidence
+  - interval
+  - stats_print
+  - generate_frame
+
+- title: Probbability Distributions
+  desc: Probability distributions and sampling distributions
+  contents:
+  - stand_normal
+  - central_limit
+  - discrete_dist
+  - binom_dist
+  - starts_with("sampling_dist")
+
+- title: One Sample
+  desc: Student's t Distribution
+  contents:
+  - starts_with("one_sample")
+
+- title: Two Sample
+  desc: Comparing two population means and proportions
+  contents:
+  - starts_with("two_sample")
+  - starts_with("pooled")
+  - starts_with("two_prop")
+
+- title: Correlation
+  desc: Correlation between two variables
+  contents:
+  - starts_with("correlation_")
+
+- title: Linear Regression
+  desc: Simple and multiple linear regression
+  contents:
+  - starts_with("slr_")
+  - starts_with("lr_")
+
+- title: ANOVA
+  desc: One and Two way Analaysis of Variance
+  contents:
+  - starts_with("anova")
+  - f_test
+
+- title: Chi-Square
+  desc: Chi-Square test for independence and Chi-Square goodness of fit test
+  contents:
+  - xsq_test
+  - starts_with("chisq_")
+
+- title: Logistic Regression
+  contents:
+  - starts_with("logistic_")
+
+- title: Non-Parametric Methods
+  desc: Sign-test, Wilcoxon Signed-Rank test, Wilcoxon Rank-Sum test
+  contents:
+  - starts_with("signed_")
+  - starts_with("rank_")
+
+- title: Doc Templates
+  desc: Templates used for various docs
+  contents:
+  - test_base
+  - assumptions

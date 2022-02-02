@@ -1,27 +1,27 @@
 
-#' Student's Standard Error
+#' One Sample Standard Error
 #'
 #' Calculates the students standard error
 #' @param s the sample standard deviation
 #' @param n the sample size
 #' @return students se
 #' @export
-students_se <- function(s, n) {
+one_sample_se <- function(s, n) {
   return(s / sqrt(n))
 }
 
-#' Student's One Sample t-test
+#' One Sample Student's t-test
 #'
 #' @param mu the population mean
 #' @param x the sample mean
-#' @inheritParams students_se
+#' @inheritParams one_sample_se
 #' @inherit test_base
 #' @seealso [stats::t.test()]
 #' @seealso \code{t.test(data$X)}
 #' @export
-students_t <- function(mu, x, s, n, tail, conf = 0.95) {
+one_sample_t <- function(mu, x, s, n, tail, conf = 0.95) {
   df <- n - 1
-  se <- students_se(s, n)
+  se <- one_sample_se(s, n)
   t <- (x - mu) / se
   p <- t_test(t, df, tail)
   moe <- t_crit(conf, df) * se
