@@ -5,6 +5,7 @@
 #' @usage x \%ni\% table
 #' @rdname ni
 #' @export
+#'
 #' @examples
 #' 1 %ni% c(2, 3) # TRUE
 #' "B" %ni% c("A", "B", "C") # FALSE
@@ -53,6 +54,7 @@ z_crit <- function(conf) {
 #' @return the t Critical value
 #' @importFrom stats qt
 #' @export
+#'
 #' @examples
 #' t_crit(0.95, 2) # 95% Confident
 #' t_crit(0.90, 2) # 90% Confident
@@ -65,8 +67,8 @@ t_crit <- function(conf, df) {
 #' Calculates the confidence interval of a value.
 #' @param x the value being intervaled
 #' @param moe the margin of error
-#' @export
 #' @return \code{x +- moe}
+#' @export
 interval <- function(x, moe) {
   return(c(x - moe, x + moe))
 }

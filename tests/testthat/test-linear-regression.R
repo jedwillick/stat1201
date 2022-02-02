@@ -11,3 +11,8 @@ test_that("Linear regression degrees of freedom", {
   expect_equal(lr_df(25, 1), 23)
   expect_equal(lr_df(100, 2), 97)
 })
+
+test_that("Linear Regression Margin of Error", {
+  delta_equal(lr_moe(97, 14.52, conf=0.9), t_crit(0.9, 97) * 14.52)
+})
+

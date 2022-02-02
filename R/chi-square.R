@@ -3,8 +3,8 @@
 #' @param correct Boolean indicating whether to perform Yates' Continuity Correction
 #'
 #' @inherit stats::chisq.test return
-#' @export
 #' @importFrom stats chisq.test
+#' @export
 #'
 #' @examples
 #' chisq_indep(Nicotine = c(No = 148, Yes = 52), Placebo = c(No = 182, Yes = 18))
@@ -72,8 +72,8 @@ chisq_gof <- function(fo, p, k = 0) {
 #' @param df the degrees of freedom
 #'
 #' @return the p value
-#' @export
 #' @importFrom stats pchisq
+#' @export
 xsq_test <- function(xsq, df) {
   return(1 - pchisq(abs(xsq), df))
 }

@@ -4,10 +4,10 @@
 \alias{logistic_odds}
 \title{Odds}
 \usage{
-logistic_odds(P_event)
+logistic_odds(p_event)
 }
 \arguments{
-\item{P_event}{Probability of event}
+\item{p_event}{Probability of event}
 }
 \value{
 Odds of event

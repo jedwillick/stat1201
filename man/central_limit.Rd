@@ -16,7 +16,7 @@ central_limit(x, mu, sigma, n)
 \item{n}{the sample size}
 }
 \value{
-standardized normal distribution
+standardized z-stat
 }
 \description{
 If the population is not normally distributed, for sufficiently large n,

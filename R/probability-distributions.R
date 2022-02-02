@@ -5,7 +5,7 @@
 #' @param mu population mean
 #' @param sigma population standard deviation
 #'
-#' @return standardized normal distribution
+#' @return standardized z-stat
 #' @export
 stand_normal <- function(x, mu, sigma) {
   return((x - mu) / sigma)
@@ -20,7 +20,7 @@ stand_normal <- function(x, mu, sigma) {
 #' @param sigma the population standard deviation
 #' @param n the sample size
 #'
-#' @return standardized normal distribution
+#' @return standardized z-stat
 #' @export
 central_limit <- function(x, mu, sigma, n) {
   return((x - mu) / (sigma / sqrt(n)))
@@ -92,7 +92,7 @@ sampling_dist_mean <- function(mu, sigma, n) {
   dist <- sprintf("Xbar ~ Norm(%g, %g/sqrt(%g))", mu, sigma, n)
   cat(dist, "\n")
   stats <- setNames(data.frame(exb, varxb, sdxb), c("E(Xbar)", "Var(Xbar)", "sd(Xbar)"))
-  stats_print(stats = stats, method = "Sampling Distribution of the Sample Mean)", dist = dist)
+  stats_print(stats = stats, method = "Sampling Distribution of the Sample Mean", dist = dist)
 }
 
 #' Sampling Distribution of the Sample Proportions
@@ -114,4 +114,18 @@ sampling_dist_prop <- function(p, n) {
   cat(dist, "\n")
   stats <- setNames(data.frame(eph, varph, sdph), c("E(p.hat)", "Var(p.hat)", "sd(p.hat)"))
   stats_print(stats = stats, method = "Sampling Distribution of the Sample Proportions", dist = dist)
+}
+
+#' Transform phat ~ Normal(p, sd(phat)) into standard normal form.
+#'
+#' @param phat the sample proportion
+#' @inheritParams sampling_dist_prop
+#'
+#' @return the standardized z-stat.
+#' @export
+#'
+#' @examples
+#' sampling_dist_prop_norm(0.3, 0.1, 10)
+sampling_dist_prop_norm <- function(phat, p, n) {
+  return((phat - p) / sqrt((p * (1 - p)) / n))
 }

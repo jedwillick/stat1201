@@ -29,8 +29,8 @@ two_sample_se <- function(s1, n1, s2, n2) {
 #' @param x2 2nd sample mean
 #' @inheritParams two_sample_se
 #' @inherit test_base
-#' @export
 #' @seealso \code{stats::t.test(Y ~ X, data)}
+#' @export
 two_sample_t <- function(x1, s1, n1, x2, s2, n2, tail, conf = 0.95) {
   df <- min(c(n1 - 1, n2 - 1))
   se <- two_sample_se(s1, n1, s2, n2)
@@ -117,8 +117,8 @@ two_prop_se <- function(phat1, n1, phat2, n2) {
 #'
 #' @inheritParams two_prop_se
 #' @inherit test_base
-#' @export
 #' @seealso \code{stats::prop.test(table(data$X, data$Y))}
+#' @export
 two_prop_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
   se <- two_prop_se(phat1, n1, phat2, n2)
   z <- ((phat1 - phat2) - 0) / se

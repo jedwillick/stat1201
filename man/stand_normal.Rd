@@ -14,7 +14,7 @@ stand_normal(x, mu, sigma)
 \item{sigma}{population standard deviation}
 }
 \value{
-standardized normal distribution
+standardized z-stat
 }
 \description{
 Transform a normal distribution to a standard normal distribution

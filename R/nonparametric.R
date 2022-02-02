@@ -30,7 +30,7 @@ signed_rank_expected <- function(n) {
   return((n * (n + 1)) / 4)
 }
 
-#' Signed-Rank test with Normal Approximation
+#' Signed-Rank z-test with Normal Approximation
 #'
 #' @param S sum of ranks corresponding to either positive or negative differences
 #' @inheritParams signed_rank_sd
@@ -68,7 +68,7 @@ rank_sum_sd <- function(n1, n2) {
   return(sqrt((n1 * n2 * (n1 + n2 + 1)) / 12))
 }
 
-#' Rank-Sum test (Wilcoxon Rank-Sum test)
+#' Rank-Sum z-test (Wilcoxon Rank-Sum test)
 #'
 #' @param W sum of ranks for observations from the target sample.
 #' @inheritParams rank_sum_expected

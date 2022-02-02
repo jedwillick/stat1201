@@ -2,7 +2,7 @@
 % Please edit documentation in R/nonparametric.R
 \name{rank_sum}
 \alias{rank_sum}
-\title{Rank-Sum test (Wilcoxon Rank-Sum test)}
+\title{Rank-Sum z-test (Wilcoxon Rank-Sum test)}
 \usage{
 rank_sum(W, n1, n2, tail)
 }

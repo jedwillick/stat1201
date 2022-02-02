@@ -6,6 +6,7 @@
 #'
 #' @return the t-stat
 #' @export
+#'
 #' @seealso \code{stats::lm(Y ~ X, data)}
 slr_t <- function(b, se, B = 0) {
   return((b - B) / se)
@@ -48,10 +49,11 @@ lr_moe <- function(df, se, conf = 0.95) {
 #' Linear Regression Assumptions
 #'
 #' @inherit assumptions return description
-#' @export
+#'
 #' @seealso \code{stats::lm(Y ~ X, data)}
 #' @seealso \code{stats::lm(Y ~ X1 * X2, data) # Interaction}
 #' @seealso \code{stats::lm(Y ~ X1 + X2, data) # No Interaction}
+#' @export
 lr_assumptions <- function() {
   writeLines(c(
     "1. Linearity - Relationship between X and Y is linear.",

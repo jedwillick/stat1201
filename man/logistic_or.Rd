@@ -4,12 +4,12 @@
 \alias{logistic_or}
 \title{Odds Ratio (OR)}
 \usage{
-logistic_or(P1, P2)
+logistic_or(p1, p2)
 }
 \arguments{
-\item{P1}{Probability of event 1}
+\item{p1}{Probability of event 1}
 
-\item{P2}{Probability of event 2}
+\item{p2}{Probability of event 2}
 }
 \value{
 Odds Ratio

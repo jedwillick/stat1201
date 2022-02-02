@@ -4,9 +4,9 @@
 #' @param n the sample size
 #'
 #' @return The correlation standard error
-#' @export
 #' @seealso [stats::cor()]
 #' @seealso [stats::cor.test()]
+#' @export
 correlation_se <- function(r, n) {
   return(sqrt((1 - (r^2)) / (n - 2)))
 }

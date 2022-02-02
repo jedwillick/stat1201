@@ -49,13 +49,14 @@ anova_f <- function(msg, msr) {
 #' @param df2 residuals degrees of freedom (n - k)
 #'
 #' @return p-value
-#' @export
 #' @importFrom stats pf
+#'
 #' @seealso \code{stats::aov(Y ~ X, data) # One-Way}
 #' @seealso \code{stats::aov(Y ~ X1 * X2, data) # Two-Way}
 #' @seealso \code{stats::pairwise.t.test(x, g, p.adjust.method = "none")}
 #' @seealso \code{stats::pairwise.t.test(x, g, p.adjust.method = "bonferroni") # significance = 0.05/numPairs}
 #' @seealso \code{stats::TukeyHSD(fit)}
+#' @export
 f_test <- function(f, df1, df2) {
   p <- 1 - pf(abs(f), df1, df2)
   cat(p_evidence(p), "evidence\n")

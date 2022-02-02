@@ -2,7 +2,7 @@
 % Please edit documentation in R/nonparametric.R
 \name{signed_rank}
 \alias{signed_rank}
-\title{Signed-Rank test with Normal Approximation}
+\title{Signed-Rank z-test with Normal Approximation}
 \usage{
 signed_rank(S, n, tail)
 }

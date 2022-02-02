@@ -1,22 +1,22 @@
 #' Odds
 #'
-#' @param P_event Probability of event
+#' @param p_event Probability of event
 #'
 #' @return Odds of event
 #' @export
-logistic_odds <- function(P_event) {
-  return(P_event(1 - P_event))
+logistic_odds <- function(p_event) {
+  return(p_event / (1 - p_event))
 }
 
 #' Odds Ratio (OR)
 #'
-#' @param P1 Probability of event 1
-#' @param P2 Probability of event 2
+#' @param p1 Probability of event 1
+#' @param p2 Probability of event 2
 #'
 #' @return Odds Ratio
 #' @export
-logistic_or <- function(P1, P2) {
-  return(P1 / P2)
+logistic_or <- function(p1, p2) {
+  return(logistic_odds(p1) / logistic_odds(p2))
 }
 
 #' Logistic Regression phat
