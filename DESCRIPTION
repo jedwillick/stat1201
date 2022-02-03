@@ -1,11 +1,13 @@
 Package: stat1201
 Type: Package
 Title: STAT1201 Equation Library
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: person("Jed", "Willick", role=c("aut", "cre"), email="j.willick@uqconnect.edu.au")
 Description: All the equations you need for the STAT1201 final as an R library.
 License: MIT + file LICENSE
 URL: https://jedwillick.github.io/stat1201/, https://github.com/jedwillick/stat1201
+Depends:
+  R (>= 4.1.0)
 Suggests: 
     covr,
     knitr,
