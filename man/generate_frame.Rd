@@ -23,11 +23,13 @@ frame1 <- generate_frame(
   Nicotine = c(No = 148, Yes = 52),
   Placebo = c(No = 182, Yes = 18)
 )
+str(frame1)
 addmargins(table(frame1$Rows, frame1$Cols))
 
 frame2 <- generate_frame(
   Home = c("2018" = 391, "2020" = 454),
   Shared = c("2018" = 185, "2020" = 139)
 )
+str(frame2)
 addmargins(table(frame2$Rows, frame2$Cols))
 }

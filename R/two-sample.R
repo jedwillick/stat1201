@@ -127,6 +127,9 @@ two_prop_se <- function(phat1, n1, phat2, n2) {
 #' @seealso [stats::prop.test()]
 #' @seealso \code{prop.test(table(data$X, data$Y))}
 #' @export
+#'
+#' @examples
+#' two_prop_z(27/75, 75, 130/556, 556, 1)
 two_prop_z <- function(phat1, n1, phat2, n2, tail, conf = 0.95) {
   se <- two_prop_se(phat1, n1, phat2, n2)
   z <- ((phat1 - phat2) - 0) / se

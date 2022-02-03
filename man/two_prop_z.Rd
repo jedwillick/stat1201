@@ -26,6 +26,9 @@ the list of stats.
 Calculates the statistics, prints in a nice format,
 and returns a list for easy access of the stats.
 }
+\examples{
+two_prop_z(27/75, 75, 130/556, 556, 1)
+}
 \seealso{
 \code{\link[stats:prop.test]{stats::prop.test()}}
 

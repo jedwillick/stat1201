@@ -45,6 +45,7 @@ vignettes/*.pdf
 
 # pkgdown site
 docs/
+inst/doc
 
 # translation temp files
 po/*~
@@ -57,4 +58,4 @@ rsconnect/
 /*_files/
 
 # End of https://www.toptal.com/developers/gitignore/api/r
-docs
+

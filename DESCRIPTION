@@ -2,28 +2,18 @@ Package: stat1201
 Type: Package
 Title: STAT1201 Equation Library
 Version: 0.3.2
-Authors@R: person("Jed", "Willick", role="cre", email="j.willick@uqconnect.edu.au")
+Authors@R: person("Jed", "Willick", role=c("aut", "cre"), email="j.willick@uqconnect.edu.au")
 Description: All the equations you need for the STAT1201 final as an R library.
 License: MIT + file LICENSE
-Encoding: UTF-8
 URL: https://jedwillick.github.io/stat1201/, https://github.com/jedwillick/stat1201
 Suggests: 
     covr,
+    knitr,
     pkgdown,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Encoding: UTF-8
 RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
-Collate: 
-    'anova.R'
-    'base.R'
-    'chi-square.R'
-    'correlation.R'
-    'doc-templates.R'
-    'linear-regression.R'
-    'logistic-regression.R'
-    'nonparametric.R'
-    'one-sample.R'
-    'two-sample.R'
-    'probability-distributions.R'
-    'stat1201.R'
+VignetteBuilder: knitr
