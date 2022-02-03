@@ -23,6 +23,9 @@ and returns a list for easy access of the stats."><!-- mathjax --><script src="h
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/notes.html">Notes</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -79,6 +82,19 @@ and returns a list for easy access of the stats.</p>
 <p><code>prop.test(table(data$X, data$Y))</code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">two_prop_z</span><span class="op">(</span><span class="fl">27</span><span class="op">/</span><span class="fl">75</span>, <span class="fl">75</span>, <span class="fl">130</span><span class="op">/</span><span class="fl">556</span>, <span class="fl">556</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1-Sided Two Proportion z-test </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  se(ph1-ph2)   z.stat    p.value evidence</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.05825978 2.165938 0.01515798 moderate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95% Confidence </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MOE: 0.114187, CI: (0.012, 0.240374)</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

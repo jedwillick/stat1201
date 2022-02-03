@@ -21,6 +21,9 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/notes.html">Notes</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -70,6 +73,10 @@ Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)</p></dd>
 <span class="r-in">  Nicotine <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>No <span class="op">=</span> <span class="fl">148</span>, Yes <span class="op">=</span> <span class="fl">52</span><span class="op">)</span>,</span>
 <span class="r-in">  Placebo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>No <span class="op">=</span> <span class="fl">182</span>, Yes <span class="op">=</span> <span class="fl">18</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">frame1</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	400 obs. of  2 variables:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ Cols: Factor w/ 2 levels "Nicotine","Placebo": 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ Rows: Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html" class="external-link">addmargins</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">frame1</span><span class="op">$</span><span class="va">Rows</span>, <span class="va">frame1</span><span class="op">$</span><span class="va">Cols</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Nicotine Placebo Sum</span>
@@ -81,6 +88,10 @@ Col1 = c(Row1 = 52, Row2 = 61), Col2 = c(Row1 = 22, Row2 = 39)</p></dd>
 <span class="r-in">  Home <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2018"</span> <span class="op">=</span> <span class="fl">391</span>, <span class="st">"2020"</span> <span class="op">=</span> <span class="fl">454</span><span class="op">)</span>,</span>
 <span class="r-in">  Shared <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2018"</span> <span class="op">=</span> <span class="fl">185</span>, <span class="st">"2020"</span> <span class="op">=</span> <span class="fl">139</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">frame2</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1169 obs. of  2 variables:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ Cols: Factor w/ 2 levels "Home","Shared": 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ Rows: Factor w/ 2 levels "2018","2020": 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html" class="external-link">addmargins</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">frame2</span><span class="op">$</span><span class="va">Rows</span>, <span class="va">frame2</span><span class="op">$</span><span class="va">Cols</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        Home Shared  Sum</span>
