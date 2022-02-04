@@ -1,5 +1,6 @@
-test_that("Correlation SE", {
+test_that("Correlation sd & df", {
   delta_equal(correlation_se(0.6642512, 20), 0.1761897)
+  expect_equal(correlation_df(20), 18)
 })
 
 test_that("Correlation t-test Lecture example", {

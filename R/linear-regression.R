@@ -36,11 +36,7 @@ lr_df <- function(n, k) {
 
 #' Linear Regression Margin of Error
 #'
-#' @param df Degrees of Freedom
-#' @param se Standard Error
-#' @param conf Confidence
-#'
-#' @return Margin of Error
+#' @inherit moe_base
 #' @export
 lr_moe <- function(df, se, conf = 0.95) {
   return(t_crit(conf, df) * se)

@@ -17,3 +17,9 @@ outliers(Q1, Q3, obs = NULL)
 Displays the left and right bounds for outliers.
 If an observation is provided displays whether that observation is an outlier.
 }
+\examples{
+outliers(6.45, 10.23)
+outliers(6.45, 10.23, obs = 0.5)
+outliers(6.45, 10.23, obs = 16)
+outliers(6.45, 10.23, obs = 12)
+}

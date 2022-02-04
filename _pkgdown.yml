@@ -5,7 +5,7 @@ template:
 
 navbar:
   structure:
-    left:  [intro, reference, notes]
+    left:  [intro, reference, notes, articles]
     right: [search, github]
   components:
     notes:
@@ -20,6 +20,9 @@ reference:
 - title: Base
   desc: Base functions used throughout.
   contents:
+  - mode_stats
+  - population_sd
+  - sample_sd
   - ni
   - outliers
   - z_test
@@ -31,7 +34,7 @@ reference:
   - stats_print
   - generate_frame
 
-- title: Probbability Distributions
+- title: Probability Distributions
   desc: Probability distributions and sampling distributions
   contents:
   - stand_normal
@@ -46,11 +49,18 @@ reference:
   - starts_with("one_sample")
 
 - title: Two Sample
-  desc: Comparing two population means and proportions
+  desc: Comparing two population means
   contents:
   - starts_with("two_sample")
   - starts_with("pooled")
   - starts_with("two_prop")
+
+- title: Proportions
+  desc: Comparing one and two population proportions
+  contents:
+  - starts_with("one_prop")
+  - starts_with("two_prop")
+  - prop_moe
 
 - title: Correlation
   desc: Correlation between two variables
@@ -90,3 +100,4 @@ reference:
   contents:
   - test_base
   - assumptions
+  - moe_base

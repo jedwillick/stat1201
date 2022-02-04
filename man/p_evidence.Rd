@@ -16,7 +16,7 @@ the strength of the p value
 Checks the strength of a p value.
 }
 \examples{
-p_evidence(0.0101)
+p_evidence(0.00912)
 p_evidence(0.0421)
 p_evidence(0.0666)
 p_evidence(0.142)

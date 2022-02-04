@@ -4,7 +4,7 @@
 \alias{correlation_t}
 \title{Correlation t-test}
 \usage{
-correlation_t(r, n, tail, p = 0, conf = 0.95)
+correlation_t(r, n, tail = 2, p = 0, conf = 0.95)
 }
 \arguments{
 \item{r}{the sample correlation coefficient can be found with \code{cor(x, y)}}
@@ -23,6 +23,9 @@ the list of stats.
 \description{
 Calculates the statistics, prints in a nice format,
 and returns a list for easy access of the stats.
+}
+\examples{
+correlation_t(0.6642512, 20, 2)
 }
 \seealso{
 \code{\link[stats:cor]{stats::cor()}}

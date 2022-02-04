@@ -42,7 +42,7 @@ signed_rank_expected <- function(n) {
 #'
 #' @examples
 #' signed_rank(96, 15, 1)
-signed_rank <- function(S, n, tail) {
+signed_rank <- function(S, n, tail = 2) {
   es <- signed_rank_expected(n)
   sds <- signed_rank_sd(n)
   z <- (S - es) / sds
@@ -80,7 +80,7 @@ rank_sum_sd <- function(n1, n2) {
 #'
 #' @examples
 #' rank_sum(141.5, 10, 10, 1)
-rank_sum <- function(W, n1, n2, tail) {
+rank_sum <- function(W, n1, n2, tail = 2) {
   ew <- rank_sum_expected(n1, n2)
   sdw <- rank_sum_sd(n1, n2)
   z <- (W - ew) / sdw

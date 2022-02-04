@@ -19,7 +19,7 @@ one_sample_se <- function(s, n) {
 #' @seealso [stats::t.test()]
 #' @seealso \code{t.test(data$X)}
 #' @export
-one_sample_t <- function(mu, x, s, n, tail, conf = 0.95) {
+one_sample_t <- function(x, s, n, mu = 0, tail = 2, conf = 0.95) {
   df <- n - 1
   se <- one_sample_se(s, n)
   t <- (x - mu) / se

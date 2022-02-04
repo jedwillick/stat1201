@@ -7,12 +7,12 @@
 logistic_moe(se, conf = 0.95)
 }
 \arguments{
-\item{se}{the standard error}
+\item{se}{The standard error}
 
-\item{conf}{the confidence}
+\item{conf}{The confidence}
 }
 \value{
-the margin of error
+The margin of Error
 }
 \description{
 Logistic Regression is a z-distribution.

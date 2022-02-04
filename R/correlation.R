@@ -1,3 +1,16 @@
+#' Correlation Between Two Variables DF
+#'
+#' @param n sample size
+#'
+#' @return Degrees of Freedom
+#' @export
+#'
+#' @examples
+#' correlation_df(20)
+correlation_df <- function(n) {
+  return(n - 2)
+}
+
 #' Correlation Standard Error
 #'
 #' @param r the sample correlation coefficient can be found with `cor(x, y)`
@@ -18,7 +31,10 @@ correlation_se <- function(r, n) {
 #' @inherit correlation_se
 #' @param p the population correlation coefficient
 #' @export
-correlation_t <- function(r, n, tail, p = 0, conf = 0.95) {
+#'
+#' @examples
+#' correlation_t(0.6642512, 20, 2)
+correlation_t <- function(r, n, tail = 2, p = 0, conf = 0.95) {
   df <- n - 2
   se <- correlation_se(r, n)
   t <- (r - p) / se

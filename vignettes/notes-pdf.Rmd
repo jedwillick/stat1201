@@ -1,0 +1,17 @@
+---
+title: "notes-pdf"
+output:
+  rmarkdown::pdf_document:
+    fig_caption: false
+geometry: margin=0.5in
+vignette: >
+  %\VignetteIndexEntry{notes-pdf}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+pkgdown:
+  as_is: true
+  extension: pdf
+---
+
+```{r child = 'notes.Rmd'}
+```

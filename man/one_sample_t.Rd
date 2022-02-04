@@ -4,16 +4,16 @@
 \alias{one_sample_t}
 \title{One Sample Student's t-test}
 \usage{
-one_sample_t(mu, x, s, n, tail, conf = 0.95)
+one_sample_t(x, s, n, mu = 0, tail = 2, conf = 0.95)
 }
 \arguments{
-\item{mu}{the population mean}
-
 \item{x}{the sample mean}
 
 \item{s}{the sample standard deviation}
 
 \item{n}{the sample size}
+
+\item{mu}{the population mean}
 
 \item{tail}{specify either \code{1} or \code{2} tail}
 

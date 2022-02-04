@@ -1,6 +1,8 @@
 ---
 title: "notes"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    fig_caption: false
 vignette: >
   %\VignetteIndexEntry{notes}
   %\VignetteEngine{knitr::rmarkdown}
@@ -14,6 +16,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+## WIP
+
 ```{r setup}
 library(stat1201)
+1 + 1
 ```
+

@@ -1,3 +1,19 @@
+test_that("Mode", {
+  expect_equal(mode_stats(c(80, 70, 66, 50, 66, 74, 78, 58)), 66)
+})
+
+test_that("Population SD", {
+  x <- c(10, 12, 13, 14, 15, 14, 15)
+  mu <- mean(x)
+  N <- length(x)
+  expect_equal(population_sd(x, mu, N), sqrt(sum((x - mu)^2) / N))
+})
+
+test_that("Sample SD", {
+  x <- c(10, 12, 13, 14, 15, 14, 15)
+  expect_equal(sample_sd(x), sd(x))
+})
+
 test_that("not in", {
   expect_true(0 %ni% c(1, 2))
   expect_false(2 %ni% c(1, 2))

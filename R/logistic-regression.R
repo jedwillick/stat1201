@@ -40,10 +40,7 @@ logistic_phat <- function(b0, b1, x) {
 #' Logistic Regression Margin of Error
 #'
 #' Logistic Regression is a z-distribution.
-#' @param se the standard error
-#' @param conf the confidence
-#'
-#' @return the margin of error
+#' @inherit moe_base
 #' @export
 logistic_moe <- function(se, conf = 0.95) {
   return(z_crit(conf) * se)

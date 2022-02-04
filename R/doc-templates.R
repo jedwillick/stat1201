@@ -16,3 +16,13 @@ NULL
 #' @returns NULL
 #' @name assumptions
 NULL
+
+#' moe base
+#'
+#' Calculates the margin of error
+#' @param conf The confidence
+#' @param df The degrees of freedom
+#' @param se The standard error
+#' @return The margin of Error
+#' @name moe_base
+NULL

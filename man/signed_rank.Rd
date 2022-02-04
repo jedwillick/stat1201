@@ -4,7 +4,7 @@
 \alias{signed_rank}
 \title{Signed-Rank z-test with Normal Approximation}
 \usage{
-signed_rank(S, n, tail)
+signed_rank(S, n, tail = 2)
 }
 \arguments{
 \item{S}{sum of ranks corresponding to either positive or negative differences}

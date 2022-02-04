@@ -40,21 +40,3 @@ test_that("Pooled t-test Lecture example", {
   delta_equal(x$moe, moe)
   delta_equal(x$ci, interval(4.94, moe))
 })
-
-test_that("Two proportion SE", {
-  delta_equal(two_prop_se(0.32, 100, 0.18, 100), 0.06043178)
-})
-
-test_that("Two Proportions z-test Lecture example", {
-  capture_invisible(x <- two_prop_z(0.32, 100, 0.18, 100, 1))
-  expect_equal(x$method, "1-Sided Two Proportion z-test")
-  expect_equal(x$tail, 1)
-  delta_equal(x$`se(ph1-ph2)`, 0.06043178)
-  delta_equal(x$z.stat, 2.316662)
-  delta_equal(x$p.value, 0.010261)
-  expect_equal(x$evidence, "moderate")
-  expect_equal(x$conf, 0.95)
-  moe <- z_crit(0.95) * x$`se(ph1-ph2)`
-  delta_equal(x$moe, moe)
-  delta_equal(x$ci, interval(0.32 - 0.18, moe))
-})

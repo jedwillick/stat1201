@@ -4,7 +4,7 @@
 \alias{rank_sum}
 \title{Rank-Sum z-test (Wilcoxon Rank-Sum test)}
 \usage{
-rank_sum(W, n1, n2, tail)
+rank_sum(W, n1, n2, tail = 2)
 }
 \arguments{
 \item{W}{sum of ranks for observations from the target sample.}

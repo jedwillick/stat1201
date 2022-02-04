@@ -4,7 +4,7 @@
 \alias{two_sample_t}
 \title{Two Sample t-test SD's Not Equal}
 \usage{
-two_sample_t(x1, s1, n1, x2, s2, n2, tail, conf = 0.95)
+two_sample_t(x1, s1, n1, x2, s2, n2, tail = 2, conf = 0.95)
 }
 \arguments{
 \item{x1}{1st sample mean}

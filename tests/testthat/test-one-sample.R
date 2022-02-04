@@ -3,7 +3,7 @@ test_that("One Sample Standard Error", {
 })
 
 test_that("One Sample Student's t-test", {
-  capture_invisible(x <- one_sample_t(55, 60.8, 10.91, 20, 2))
+  capture_invisible(x <- one_sample_t(60.8, 10.91, 20, mu = 55))
   expect_equal(x$method, "2-Sided One Sample Student's t-test")
   expect_equal(x$tail, 2)
   expect_equal(x$df, 19)

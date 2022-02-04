@@ -1,3 +1,41 @@
+#' Mode of from values
+#'
+#' @param x values
+#'
+#' @return the mode of the values
+#' @export
+#'
+#' @examples
+#' mode_stats(c(80, 70, 66, 50, 66, 74, 78, 58))
+mode_stats <- function(x) {
+  uniqv <- unique(x)
+  uniqv[which.max(tabulate(match(x, uniqv)))]
+}
+
+#' Population Standard Deviation
+#'
+#' @param xi population
+#' @param mu population mean
+#' @param N population size
+#'
+#' @return Population Standard Deviation
+#' @export
+population_sd <- function(xi, mu, N) {
+  return(sqrt(sum((xi - mu)^2) / N))
+}
+
+#' Sample Standard Deviation
+#'
+#' @param xi sample
+#'
+#' @return Sample Standard Deviation
+#' @seealso [stats::sd()]
+#' @export
+sample_sd <- function(xi) {
+  x <- mean(xi)
+  return(sqrt(sum((xi - x)^2) / (length(xi) - 1)))
+}
+
 #' Not Value Matching
 #'
 #' Negation of \code{\%in\%}
@@ -21,7 +59,7 @@
 #' @export
 #'
 #' @examples
-#' p_evidence(0.0101)
+#' p_evidence(0.00912)
 #' p_evidence(0.0421)
 #' p_evidence(0.0666)
 #' p_evidence(0.142)
@@ -87,6 +125,12 @@ interval <- function(x, moe) {
 #' @param Q3 the third quartile
 #' @param obs the observation
 #' @export
+#'
+#' @examples
+#' outliers(6.45, 10.23)
+#' outliers(6.45, 10.23, obs = 0.5)
+#' outliers(6.45, 10.23, obs = 16)
+#' outliers(6.45, 10.23, obs = 12)
 outliers <- function(Q1, Q3, obs = NULL) {
   IQR <- Q3 - Q1
   left <- Q1 - (1.5 * IQR)
