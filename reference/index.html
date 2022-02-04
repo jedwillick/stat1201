@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stat1201</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +23,13 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/notes.html">Notes</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/notes-pdf.pdf">notes-pdf (PDF)</a>
+    <a class="dropdown-item" href="../articles/notes.html">notes</a>
+  </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -71,6 +78,21 @@
       
 
       <dl><dt>
+          
+          <code><a href="mode_stats.html">mode_stats()</a></code> 
+        </dt>
+        <dd>Mode of from values</dd>
+      </dl><dl><dt>
+          
+          <code><a href="population_sd.html">population_sd()</a></code> 
+        </dt>
+        <dd>Population Standard Deviation</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sample_sd.html">sample_sd()</a></code> 
+        </dt>
+        <dd>Sample Standard Deviation</dd>
+      </dl><dl><dt>
           
           <code><a href="ni.html">`%ni%`</a></code> 
         </dt>
@@ -121,7 +143,7 @@
         </dt>
         <dd>Generate data.frame</dd>
       </dl></div><div class="section level2">
-      <h2 id="probbability-distributions">Probbability Distributions<a class="anchor" aria-label="anchor" href="#probbability-distributions"></a></h2>
+      <h2 id="probability-distributions">Probability Distributions<a class="anchor" aria-label="anchor" href="#probability-distributions"></a></h2>
       
       <p class="section-desc"></p><p>Probability distributions and sampling distributions</p>
 
@@ -190,7 +212,7 @@
       </dl></div><div class="section level2">
       <h2 id="two-sample">Two Sample<a class="anchor" aria-label="anchor" href="#two-sample"></a></h2>
       
-      <p class="section-desc"></p><p>Comparing two population means and proportions</p>
+      <p class="section-desc"></p><p>Comparing two population means</p>
 
       
     </div><div id="" class="section level2">
@@ -244,6 +266,47 @@
         </dt>
         <dd>Two Proportions z-test</dd>
       </dl></div><div class="section level2">
+      <h2 id="proportions">Proportions<a class="anchor" aria-label="anchor" href="#proportions"></a></h2>
+      
+      <p class="section-desc"></p><p>Comparing one and two population proportions</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="one_prop_se.html">one_prop_se()</a></code> 
+        </dt>
+        <dd>One Sample Proportion Standard Error</dd>
+      </dl><dl><dt>
+          
+          <code><a href="one_prop_z.html">one_prop_z()</a></code> 
+        </dt>
+        <dd>One Sample Proportion z-test</dd>
+      </dl><dl><dt>
+          
+          <code><a href="two_prop_assumptions.html">two_prop_assumptions()</a></code> 
+        </dt>
+        <dd>Two Proportions t-test Assumptions</dd>
+      </dl><dl><dt>
+          
+          <code><a href="two_prop_se.html">two_prop_se()</a></code> 
+        </dt>
+        <dd>Two Proportions Standard Error</dd>
+      </dl><dl><dt>
+          
+          <code><a href="two_prop_z.html">two_prop_z()</a></code> 
+        </dt>
+        <dd>Two Proportions z-test</dd>
+      </dl><dl><dt>
+          
+          <code><a href="prop_moe.html">prop_moe()</a></code> 
+        </dt>
+        <dd>Proportion Margin of Error</dd>
+      </dl></div><div class="section level2">
       <h2 id="correlation">Correlation<a class="anchor" aria-label="anchor" href="#correlation"></a></h2>
       
       <p class="section-desc"></p><p>Correlation between two variables</p>
@@ -255,6 +318,11 @@
       
 
       <dl><dt>
+          
+          <code><a href="correlation_df.html">correlation_df()</a></code> 
+        </dt>
+        <dd>Correlation Between Two Variables DF</dd>
+      </dl><dl><dt>
           
           <code><a href="correlation_se.html">correlation_se()</a></code> 
         </dt>
@@ -480,6 +548,11 @@
           <code><a href="assumptions.html">assumptions</a></code> 
         </dt>
         <dd>assumptions base</dd>
+      </dl><dl><dt>
+          
+          <code><a href="moe_base.html">moe_base</a></code> 
+        </dt>
+        <dd>moe base</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

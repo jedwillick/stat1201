@@ -12,7 +12,7 @@ and returns a list for easy access of the stats."><!-- mathjax --><script src="h
     
     <a class="navbar-brand me-2" href="../index.html">stat1201</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,13 @@ and returns a list for easy access of the stats."><!-- mathjax --><script src="h
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/notes.html">Notes</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/notes-pdf.pdf">notes-pdf (PDF)</a>
+    <a class="dropdown-item" href="../articles/notes.html">notes</a>
+  </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -43,7 +50,7 @@ and returns a list for easy access of the stats."><!-- mathjax --><script src="h
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Two Proportions z-test</h1>
-      <small class="dont-index">Source: <a href="https://github.com/jedwillick/stat1201/blob/HEAD/R/two-sample.R" class="external-link"><code>R/two-sample.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/jedwillick/stat1201/blob/HEAD/R/proportions.R" class="external-link"><code>R/proportions.R</code></a></small>
       <div class="d-none name"><code>two_prop_z.Rd</code></div>
     </div>
 
@@ -54,7 +61,7 @@ and returns a list for easy access of the stats.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">two_prop_z</span><span class="op">(</span><span class="va">phat1</span>, <span class="va">n1</span>, <span class="va">phat2</span>, <span class="va">n2</span>, <span class="va">tail</span>, conf <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">two_prop_z</span><span class="op">(</span><span class="va">phat1</span>, <span class="va">n1</span>, <span class="va">phat2</span>, <span class="va">n2</span>, tail <span class="op">=</span> <span class="fl">2</span>, conf <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -84,7 +91,7 @@ and returns a list for easy access of the stats.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">two_prop_z</span><span class="op">(</span><span class="fl">27</span><span class="op">/</span><span class="fl">75</span>, <span class="fl">75</span>, <span class="fl">130</span><span class="op">/</span><span class="fl">556</span>, <span class="fl">556</span>, <span class="fl">1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">two_prop_z</span><span class="op">(</span><span class="fl">27</span> <span class="op">/</span> <span class="fl">75</span>, <span class="fl">75</span>, <span class="fl">130</span> <span class="op">/</span> <span class="fl">556</span>, <span class="fl">556</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1-Sided Two Proportion z-test </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
