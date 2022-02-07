@@ -40,7 +40,7 @@ central_limit <- function(x, mu, sigma, n) {
 #' @examples
 #' discrete_dist(0:3, c(0.21, 0.45, 0.23, 0.11))
 discrete_dist <- function(x, prob) {
-  dist <- setNames(data.frame(x, prob), c("X", "P(X=x)"))
+  dist <- setNames(data.frame(x, prob), c("x", "P(X=x)"))
   print(dist, row.names = FALSE)
 
   ex <- sum(x * prob)
@@ -110,7 +110,7 @@ sampling_dist_prop <- function(p, n) {
   eph <- p
   varph <- (p * (1 - p)) / n
   sdph <- sqrt(varph)
-  dist <- sprintf("Xbar ~ Norm(%g, %g)", p, sdph)
+  dist <- sprintf("phat ~ Norm(%g, %g)", p, sdph)
   cat(dist, "\n")
   stats <- setNames(data.frame(eph, varph, sdph), c("E(p.hat)", "Var(p.hat)", "sd(p.hat)"))
   stats_print(stats = stats, method = "Sampling Distribution of the Sample Proportions", dist = dist)

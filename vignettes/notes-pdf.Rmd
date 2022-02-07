@@ -1,11 +1,12 @@
 ---
-title: "notes-pdf"
+title: "Notes-pdf"
 output:
   rmarkdown::pdf_document:
     fig_caption: false
+    highlight: pygments
 geometry: margin=0.5in
 vignette: >
-  %\VignetteIndexEntry{notes-pdf}
+  %\VignetteIndexEntry{Notes-pdf}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 pkgdown:

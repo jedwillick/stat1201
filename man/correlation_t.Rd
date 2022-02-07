@@ -21,8 +21,7 @@ correlation_t(r, n, tail = 2, p = 0, conf = 0.95)
 the list of stats.
 }
 \description{
-Calculates the statistics, prints in a nice format,
-and returns a list for easy access of the stats.
+Uses Fisher's Z Transformation for Confidence Interval
 }
 \examples{
 correlation_t(0.6642512, 20, 2)

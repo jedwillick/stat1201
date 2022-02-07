@@ -5,12 +5,15 @@ template:
 
 navbar:
   structure:
-    left:  [intro, reference, notes, articles]
+    left:  [intro, reference, notes, pdf]
     right: [search, github]
   components:
     notes:
       text: Notes
       href: articles/notes.html
+    pdf:
+      text: PDF
+      href: articles/notes-pdf.pdf
 
 reference:
 - title: stat1201

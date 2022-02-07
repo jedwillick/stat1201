@@ -13,7 +13,7 @@ test_that("Correlation t-test Lecture example", {
   delta_equal(x$p.value, 0.00140178)
   expect_equal(x$evidence, "strong")
   expect_equal(x$conf, 0.95)
-  moe <- t_crit(0.95, 18) * x$`se(r)`
+  moe <- z_crit(0.95) * sqrt(1 / (20 - 3))
   delta_equal(x$moe, moe)
-  delta_equal(x$ci, interval(0.6642512, moe))
+  delta_equal(x$ci, c(0.3140413, 0.8553471))
 })

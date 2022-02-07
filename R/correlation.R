@@ -27,6 +27,7 @@ correlation_se <- function(r, n) {
 
 #' Correlation t-test
 #'
+#' Uses Fisher's Z Transformation for Confidence Interval
 #' @inherit  test_base
 #' @inherit correlation_se
 #' @param p the population correlation coefficient
@@ -39,9 +40,10 @@ correlation_t <- function(r, n, tail = 2, p = 0, conf = 0.95) {
   se <- correlation_se(r, n)
   t <- (r - p) / se
   p <- t_test(t, df, tail)
-  # TODO: Ask about CI not giving right result
-  moe <- t_crit(conf, df) * se
-  ci <- interval(r, moe)
+
+  # Fisher's Z Transformation
+  moe <- z_crit(conf) * sqrt(1 / (n - 3))
+  ci <- tanh(interval(atanh(r), moe))
 
   stats <- setNames(data.frame(df, se, t, p), c("df", "se(r)", "t.stat", "p.value"))
   stats_print(
