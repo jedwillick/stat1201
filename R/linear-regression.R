@@ -62,3 +62,19 @@ lr_assumptions <- function() {
     "4. Equal variance of errors."
   ))
 }
+
+#' Adjusted R-Squared Value
+#'
+#' Calculates the adjusted R-Squared value for multiple Linear Regression
+#' @param R2 the non-adjusted R-Squared
+#' @param n the sample size
+#' @param k the number of independent variables
+#'
+#' @return adjusted R-Squared
+#' @export
+#'
+#' @examples
+#' mlr_adjusted_R2(0.78, 20, 2)
+mlr_adjusted_R2 <- function(R2, n, k) {
+  return(1 - ((1 - R2) * ((n - 1) / (n - k - 1))))
+}

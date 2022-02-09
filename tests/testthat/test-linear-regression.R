@@ -15,3 +15,7 @@ test_that("Linear regression degrees of freedom", {
 test_that("Linear Regression Margin of Error", {
   delta_equal(lr_moe(97, 14.52, conf = 0.9), t_crit(0.9, 97) * 14.52)
 })
+
+test_that("Adjusted R-Squared", {
+  delta_equal(mlr_adjusted_R2(0.78, 20, 2), 1 - ((1 - 0.78) * ((20 - 1) / (20 - 2 - 1))))
+})

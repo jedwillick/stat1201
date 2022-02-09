@@ -35,7 +35,7 @@ signed_rank_expected <- function(n) {
 
 #' Signed-Rank z-test with Normal Approximation
 #'
-#' @param S sum of ranks corresponding to either positive or negative differences
+#' @param S sum of ranks corresponding to positive differences
 #' @inheritParams signed_rank_sd
 #' @inherit test_base
 #' @export

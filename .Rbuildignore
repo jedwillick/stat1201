@@ -7,3 +7,5 @@
 ^LICENSE\.md$
 ^codecov\.yml$
 ^vignettes/articles$
+^vignettes/notes\-pdf\.Rmd$
+^vignettes/notes\-pdf\.log$

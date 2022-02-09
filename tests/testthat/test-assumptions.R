@@ -1,4 +1,5 @@
 test_that("Assumptions", {
+  expect_output(one_sample_assumptions())
   expect_output(two_sample_assumptions())
   expect_output(two_prop_assumptions())
   expect_output(lr_assumptions())

@@ -1,12 +1,14 @@
 ---
-title: "Notes-pdf"
+title: "STAT1201 Course Notes PDF"
 output:
   rmarkdown::pdf_document:
     fig_caption: false
-    highlight: pygments
+    toc: true
+    toc_depth: 3
+    highlight: kate
 geometry: margin=0.5in
 vignette: >
-  %\VignetteIndexEntry{Notes-pdf}
+  %\VignetteIndexEntry{STAT1201 Course Notes PDF}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 pkgdown:

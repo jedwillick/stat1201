@@ -1,7 +1,7 @@
 Package: stat1201
 Type: Package
 Title: STAT1201 Equation Library
-Version: 0.4.0
+Version: 1.0.0
 Authors@R: person("Jed", "Willick", role=c("aut", "cre"), email="j.willick@uqconnect.edu.au")
 Description: All the equations you need for the STAT1201 final as an R library.
 License: MIT + file LICENSE
@@ -14,7 +14,8 @@ Suggests:
     knitr,
     pkgdown,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    popbio
 Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.1.2

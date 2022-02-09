@@ -33,3 +33,18 @@ one_sample_t <- function(x, s, n, mu = 0, tail = 2, conf = 0.95) {
     stats = stats, conf = conf, ci = ci, moe = moe
   )
 }
+
+#' One Sample t-test Assumptions
+#'
+#' @inherit assumptions return description
+#' @export
+#'
+#' @examples
+#' one_sample_assumptions()
+one_sample_assumptions <- function() {
+  writeLines(c(
+    "1. The data (variable) are continuous",
+    "2. The population distribution of data is normally distributed",
+    "3. The observations are independent"
+  ))
+}

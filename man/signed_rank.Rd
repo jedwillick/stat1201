@@ -7,7 +7,7 @@
 signed_rank(S, n, tail = 2)
 }
 \arguments{
-\item{S}{sum of ranks corresponding to either positive or negative differences}
+\item{S}{sum of ranks corresponding to positive differences}
 
 \item{n}{the sample size}
 

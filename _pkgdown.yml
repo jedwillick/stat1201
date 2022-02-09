@@ -75,6 +75,7 @@ reference:
   contents:
   - starts_with("slr_")
   - starts_with("lr_")
+  - starts_with("mlr_")
 
 - title: ANOVA
   desc: One and Two way Analaysis of Variance
